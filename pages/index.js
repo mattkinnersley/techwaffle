@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 
 const Home = () => (
@@ -9,15 +10,7 @@ const Home = () => (
 
     <div>
       <h1>Tech Waffle</h1>
-      <p>The Tech Blog</p>
-      <div>
-        <ul>
-          <li>Post 1</li>
-          <li>Post 2</li>
-          <li>Post 3</li>
-          <li>Post 4</li>
-        </ul>
-      </div>
+      <p>Coming soon...</p>
     </div>
   </div>
 );
