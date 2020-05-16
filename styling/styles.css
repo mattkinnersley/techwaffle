@@ -10,8 +10,7 @@
 
 .container h1 {
   font-family: "Lemon", cursive;
-  -webkit-text-stroke: 1px;
-  -webkit-text-stroke-color: black;
+  text-shadow: 3px 3px 0px black;
   color: #ffce5c;
   font-size: 72px;
 }
