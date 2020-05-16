@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Quicksand&display=swap");
 
 .container {
   display: flex;
@@ -9,9 +9,13 @@
 }
 
 .container h1 {
-  font-size: 48px;
+  font-family: "Lemon", cursive;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: black;
+  color: wheat;
+  font-size: 72px;
 }
 
 .container p {
-  font-size: 24px;
+  font-size: 36px;
 }
