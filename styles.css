@@ -5,6 +5,27 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+@font-face {
+  font-family: "Lemon";
+  src: url("./static/Lemon-Regular.ttf");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("./static/Quicksand-VariableFont_wght.ttf");
+}
+
+.logo-shadow {
+  text-shadow: 3px 3px 0px black;
+}
+
+.font-lemon {
+  font-family: "Lemon", cursive;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
 /* .container {
   display: flex;
   flex-direction: column;

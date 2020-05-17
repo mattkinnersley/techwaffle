@@ -1,10 +1,11 @@
 module.exports = {
   purge: [],
   theme: {
-    colors: {
-      waffle: "#ffce5c",
+    extend: {
+      colors: {
+        waffle: "#ffce5c",
+      },
     },
-    extend: {},
   },
   variants: {},
   plugins: [],
