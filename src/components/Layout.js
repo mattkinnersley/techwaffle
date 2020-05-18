@@ -1,7 +1,7 @@
 import React from "react";
 
 const Layout = ({ children }) => (
-  <div className="flex flex-col items-center text-center font-quicksand mx-4">
+  <div className="flex flex-col min-h-screen items-center font-quicksand px-4">
     {children}
   </div>
 );

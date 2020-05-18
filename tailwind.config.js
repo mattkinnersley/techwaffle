@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        waffle: "#ffce5c",
+        waffle: "#fcc14c",
       },
     },
   },

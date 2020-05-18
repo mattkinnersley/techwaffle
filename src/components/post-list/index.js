@@ -3,9 +3,9 @@ import ListItem from "./ListItem";
 
 const PostList = ({ posts }) => {
   return (
-    <div>
+    <div className="flex flex-col items-start">
       {posts.map((data) => (
-        <ListItem data={data}></ListItem>
+        <ListItem key={Math.random()} data={data}></ListItem>
       ))}
     </div>
   );

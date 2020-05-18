@@ -3,7 +3,7 @@ import React from "react";
 const Subtitle = () => {
   return (
     <div>
-      <p className="text-4xl">Coming soon...</p>
+      <p className="text-2xl">Just a load of waffle</p>
     </div>
   );
 };

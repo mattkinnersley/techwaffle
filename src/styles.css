@@ -7,11 +7,11 @@
 
 @font-face {
   font-family: "Lemon";
-  src: url("./static/Lemon-Regular.ttf");
+  src: url("../public/fonts/Lemon-Regular.ttf");
 }
 @font-face {
   font-family: "Quicksand";
-  src: url("./static/Quicksand-VariableFont_wght.ttf");
+  src: url("../public/fonts/Quicksand-VariableFont_wght.ttf");
 }
 
 .logo-shadow {
