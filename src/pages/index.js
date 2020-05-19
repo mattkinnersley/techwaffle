@@ -3,14 +3,7 @@ import Layout from "../components/Layout";
 import Heading from "../components/heading";
 import PostList from "../components/post-list";
 import Head from "next/head";
-
-const postData = [
-  { title: "Post 1", description: "Post 1 Description here bla bla bla" },
-  {
-    title: "Post 2",
-    description: "Post 2 Description goes here bla bla bla!!!",
-  },
-];
+import { getAllPosts } from "../utils";
 
 const Index = ({ posts }) => (
   <Layout>
@@ -26,7 +19,7 @@ const Index = ({ posts }) => (
 );
 
 export const getStaticProps = async () => {
-  const posts = postData;
+  const posts = getAllPosts();
 
   return {
     props: { posts },
