@@ -1,11 +1,11 @@
 import React from "react";
-import ListItem from "./ListItem";
+import PostThumbnail from "../post-thumbnail";
 
 const PostList = ({ posts }) => {
   return (
-    <div className="flex flex-col items-start">
-      {posts.map((data) => (
-        <ListItem key={Math.random()} data={data}></ListItem>
+    <div className="flex flex-col">
+      {posts.map((post) => (
+        <PostThumbnail key={Math.random()} post={post}></PostThumbnail>
       ))}
     </div>
   );
