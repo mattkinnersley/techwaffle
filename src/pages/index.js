@@ -12,14 +12,20 @@ const Index = ({ posts }) => (
       <link rel="icon" href="/waffle.ico" />
     </Head>
     <Heading />
-    <p>Latest Post: {posts[0].title}</p>
 
     <PostList posts={posts}></PostList>
   </Layout>
 );
 
 export const getStaticProps = async () => {
-  const posts = getAllPosts();
+  const posts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "author",
+    "coverImage",
+    "excerpt",
+  ]);
 
   return {
     props: { posts },

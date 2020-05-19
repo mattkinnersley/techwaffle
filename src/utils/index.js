@@ -1,27 +1,8 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-
-const posts = [
-  {
-    title: "Post 1",
-    description: "Post 1 Description here bla bla bla",
-    content: "Post 1 content!!!",
-    slug: "post-one",
-  },
-  {
-    title: "Post 2",
-    description: "Post 2 Description goes here bla bla bla!!!",
-    content: "Post 2 content!!!",
-    slug: "post-two",
-  },
-  {
-    title: "Post 3",
-    description: "Post 3 Description goes here bla bla bla!!!",
-    content: "Post 3 content!!!",
-    slug: "post-three",
-  },
-];
+import remark from "remark";
+import html from "remark-html";
 
 const contentDir = join(process.cwd(), "content");
 
@@ -29,11 +10,7 @@ export const getPostSlugs = () => {
   return fs.readdirSync(contentDir);
 };
 
-export const getAllPosts = (details) => {
-  return posts;
-};
-
-export function getPostBySlug(slug, fields = []) {
+export const getPostBySlug = (slug, fields = []) => {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(contentDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -56,4 +33,18 @@ export function getPostBySlug(slug, fields = []) {
   });
 
   return items;
-}
+};
+
+export const getAllPosts = (fields = []) => {
+  const slugs = getPostSlugs();
+  const posts = slugs
+    .map((slug) => getPostBySlug(slug, fields))
+    // sort posts by date in descending order
+    .sort((post1, post2) => (post1.date > post2.date ? "-1" : "1"));
+  return posts;
+};
+
+export const markdownToHtml = async (markdown) => {
+  const result = await remark().use(html).process(markdown);
+  return result.toString();
+};
