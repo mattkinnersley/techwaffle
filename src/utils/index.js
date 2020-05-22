@@ -7,12 +7,11 @@ import html from "remark-html";
 const contentDir = join(process.cwd(), "content");
 
 export const getPostSlugs = () => {
-  return fs.readdirSync(contentDir);
+  return fs.readdirSync(contentDir).map((slug) => slug.replace(/\.md$/, ""));
 };
 
 export const getPostBySlug = (slug, fields = []) => {
-  const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(contentDir, `${realSlug}.md`);
+  const fullPath = join(contentDir, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -21,7 +20,7 @@ export const getPostBySlug = (slug, fields = []) => {
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === "slug") {
-      items[field] = realSlug;
+      items[field] = slug;
     }
     if (field === "content") {
       items[field] = content;
