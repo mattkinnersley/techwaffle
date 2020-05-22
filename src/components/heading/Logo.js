@@ -1,6 +1,6 @@
 import React from "react";
 
-const Logo = ({ size, className }) => (
+const Logo = ({ size }) => (
   <img className={`h-${size}`} src="/waffle.svg"></img>
 );
 
