@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Head from "next/head";
-import Social from "../components/about/social";
+import Social from "../components/about/Social";
 
 const twitterIcon = (
   <svg
