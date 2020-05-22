@@ -9,7 +9,7 @@ const Social = ({ href, icon, handle }) => {
         className="border-2 border-black duration-300 flex group items-center p-2 thumbnail-shadow transition"
       >
         {icon}
-        <span className="ml-4">{handle}</span>
+        <span className="ml-2">{handle}</span>
       </a>
     </div>
   );
