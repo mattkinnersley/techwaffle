@@ -15,6 +15,14 @@ export default function Post({ post }) {
       <Head>
         <title>{post.title} - Tech Waffle</title>
         <link rel="icon" href="/waffle.ico" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@techwaffle" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta
+          name="twitter:image"
+          content="https://techwaffle.dev/waffle.svg"
+        />
       </Head>
       <article className="flex flex-col">
         <div className="text-center">

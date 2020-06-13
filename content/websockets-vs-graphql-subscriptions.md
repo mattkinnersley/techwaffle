@@ -1,27 +1,27 @@
 ---
 title: "WebSockets vs GraphQL Subscriptions"
-excerpt: "What's the difference between these realtime data technologies?"
+excerpt: "What's the difference between these real-time data technologies?"
 date: "2020-06-13T10:01:52.695Z"
 author: "Matt Kinnersley"
 ---
 
-At the moment, if you wanted to create an application that has some kind of realtime functionality like an instant chat, multiplayer game or social media, the way you would go about it would probably be with either WebSockets or GraphQL Subscriptions.
+At the moment, if you wanted to create an application that has some kind of real-time functionality like an instant chat, multiplayer game or social media, the way you would go about it would probably be with either WebSockets or GraphQL Subscriptions.
 
 ## What are WebSockets?
 
-WebSockets are a protocol that allows for bi-directional communication. This means your API not only receives and responds to requests, but also updates a client when data changes in realtime.
+WebSockets are a protocol that allows for bi-directional communication. This means your API not only receives and responds to requests, but also updates a client when data changes in real-time.
 
 ## What are GraphQL Subscriptions?
 
-GraphQL Subscriptions are a way of combining the WebSocket protocol with your GraphQL schemas, giving you the same realtime functionality as WebSockets. They are implemented similar to how you would implement a query or a mutation.
+GraphQL Subscriptions are a way of combining the WebSocket protocol with your GraphQL schemas, giving you the same real-time functionality as WebSockets. They are implemented similar to how you would implement a query or a mutation.
 
 ## How are they similar?
 
-Both WebSockets and GraphQL Subscriptions are implementations of a Pub/Sub system and the latter is actually built on top of the WebSocket protocol. This means that to get access to the latest data, you don't have to poll your API. Once you are subscribed to your stream, you will get the latest information when it is available, with no extra request. This feature is what makes both of these technologies fit for realtime apps that need the latest information as soon as it is published.
+Both WebSockets and GraphQL Subscriptions are implementations of a Pub/Sub system and the latter is actually built on top of the WebSocket protocol. This means that to get access to the latest data, you don't have to poll your API. Once you are subscribed to your stream, you will get the latest information when it is available, with no extra request. This feature is what makes both of these technologies fit for real-time apps that need the latest information as soon as it is published.
 
 ## Where do they differ?
 
-Both of these technologies will serve its purpose for realtime, however there are some key differences. The most obvious is of course GraphQL Subscriptions are built for GraphQL APIs. WebSockets are typically used with other REST APIs.
+Both of these technologies will serve its purpose for real-time, however there are some key differences. The most obvious is of course GraphQL Subscriptions are built for GraphQL APIs. WebSockets are typically used with other REST APIs.
 
 The most common library for WebSockets is socket.io. Do a quick google search and you will get an endless list of tutorials on how to make a chat app with socket.io.
 
