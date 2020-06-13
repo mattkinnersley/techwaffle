@@ -12,7 +12,7 @@ const Index = ({ posts, hero }) => (
       <title>Tech Waffle - Technology and Coding Blog</title>
       <link rel="icon" href="/waffle.ico" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@techwaffle" />
+      <meta name="twitter:site" content="@techwaffler" />
       <meta name="twitter:title" content="Tech Waffle" />
       <meta name="twitter:description" content="Another Tech Blog" />
       <meta name="twitter:image" content="https://techwaffle.dev/waffle.svg" />

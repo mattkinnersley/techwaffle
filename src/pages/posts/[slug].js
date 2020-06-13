@@ -16,7 +16,7 @@ export default function Post({ post }) {
         <title>{post.title} - Tech Waffle</title>
         <link rel="icon" href="/waffle.ico" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@techwaffle" />
+        <meta name="twitter:site" content="@techwaffler" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta
