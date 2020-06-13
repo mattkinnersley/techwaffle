@@ -9,7 +9,7 @@ At the moment, if you wanted to create an application that has some kind of real
 
 ## What are WebSockets?
 
-WebSockets are a protocol that allows for bi-directional communication. This means your API not only receives and responds to requests, but also update a client when data changes in realtime.
+WebSockets are a protocol that allows for bi-directional communication. This means your API not only receives and responds to requests, but also updates a client when data changes in realtime.
 
 ## What are GraphQL Subscriptions?
 
