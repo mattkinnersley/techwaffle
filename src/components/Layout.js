@@ -31,8 +31,8 @@ const Layout = ({ title, description, isHomepage = false, children }) => {
           </Link>
           <Link href="/">
             <a
-              className={`transition-all duration-500 ease-in-out ${cn({
-                "logo-hidden": !scrolled && isHomepage,
+              className={`transition-all duration-500 ease-in-out visible ${cn({
+                invisible: !scrolled && isHomepage,
               })}`}
             >
               <Logo className="h-12"></Logo>
