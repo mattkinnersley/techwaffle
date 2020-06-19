@@ -7,16 +7,11 @@ import { getAllPosts } from "../utils";
 import HeroPost from "../components/hero";
 
 const Index = ({ posts, hero }) => (
-  <Layout isHomepage={true}>
-    <Head>
-      <title>Tech Waffle - Technology and Coding Blog</title>
-      <link rel="icon" href="/waffle.ico" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@techwaffler" />
-      <meta name="twitter:title" content="Tech Waffle" />
-      <meta name="twitter:description" content="Another Tech Blog" />
-      <meta name="twitter:image" content="https://techwaffle.dev/waffle.svg" />
-    </Head>
+  <Layout
+    title="Tech Waffle"
+    description="Just a load of waffle"
+    isHomepage={true}
+  >
     <Heading />
     <div className="mt-8">
       <h2 className="text-2xl font-quicksand-bold my-4">Latest</h2>

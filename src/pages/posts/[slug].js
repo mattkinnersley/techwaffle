@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "../../utils";
 import Layout from "../../components/Layout";
-import Head from "next/head";
 import Social from "../../components/about/Social";
 import { twitterIcon } from "../../components/Twitter";
 
@@ -11,19 +10,7 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout>
-      <Head>
-        <title>{post.title} - Tech Waffle</title>
-        <link rel="icon" href="/waffle.ico" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@techwaffler" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta
-          name="twitter:image"
-          content="https://www.techwaffle.dev/waffle.svg"
-        />
-      </Head>
+    <Layout title={`${post.title} - Tech Waffle`} description={post.excerpt}>
       <article className="flex flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-extrabold">{post.title}</h1>
