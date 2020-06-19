@@ -16,7 +16,7 @@
 .logo-hidden {
   pointer-events: none;
   cursor: default;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .thumbnail-shadow {
@@ -28,6 +28,7 @@
 
 .logo-shadow {
   text-shadow: 5px 5px black;
+  -webkit-text-stroke: 2px black;
 }
 
 .font-lemon {
