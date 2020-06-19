@@ -21,7 +21,7 @@ export default function Post({ post }) {
         <meta name="twitter:description" content={post.excerpt} />
         <meta
           name="twitter:image"
-          content="https://techwaffle.dev/waffle.svg"
+          content="https://www.techwaffle.dev/waffle.svg"
         />
       </Head>
       <article className="flex flex-col">
@@ -50,6 +50,7 @@ export async function getStaticProps({ params: { slug } }) {
     "slug",
     "author",
     "content",
+    "excerpt",
     "ogImage",
     "coverImage",
   ]);
