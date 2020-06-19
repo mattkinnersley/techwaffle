@@ -5,10 +5,12 @@
 @font-face {
   font-family: "Lemon";
   src: url("../public/fonts/Lemon-Regular.ttf");
+  font-display: swap;
 }
 @font-face {
   font-family: "Quicksand";
   src: url("../public/fonts/Quicksand-VariableFont_wght.ttf");
+  font-display: swap;
 }
 
 .logo-hidden {
