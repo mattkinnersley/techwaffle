@@ -1,6 +1,6 @@
 ---
 title: 'Serverless Apollo Server'
-excerpt: 'Running Apollo Server with Webpack on the Serverless Framework'
+excerpt: 'Running Apollo Server with webpack on the Serverless Framework'
 date: '2020-07-10T14:55:38.039Z'
 author: 'Matt Kinnersley'
 ---
@@ -11,7 +11,7 @@ One of the best things about the Serverless Framework is the amount of time you 
 
 When you are following the Serverless methodology, one of the sacrifices you make for the ease of use and low-cost, is performance. The reason for this is so that if no one is using your service, it won't just sit idly in the background. Now, this is great for keeping your costs down, but when the first person wants to use the service again, they will have to wait for the service to spin back up.
 
-One of the many ways to combat this is to keep the final build size of your service down to a minimum. This is where Webpack comes in, or in our case, [`serverless-bundle`](https://github.com/AnomalyInnovations/serverless-bundle).
+One of the many ways to combat this is to keep the final build size of your service down to a minimum. This is where webpack comes in, or in our case, [serverless-bundle](https://github.com/AnomalyInnovations/serverless-bundle).
 
 ## How does it work?
 
@@ -21,7 +21,29 @@ The `serverless-bundle` plugin is actually an extension to the serverless-webpac
 
 Once again, all the heavy lifting is done for us. Apollo provides a great library for turning your GraphQL server into an AWS Lambda function. It is as simple as switching your `ApolloServer` and `gql` imports from `apollo-server` to `apollo-server-lambda`.
 
+```js
+import { ApolloServer, gql } from 'apollo-server-lambda';
+```
+
 Once that is done, all you have to do then is export the `createHandler` method from your server and you're done! All of this can be done with the `import` / `export` syntax when we combine it with `serverless-bundle` plugin.
+
+```js
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  introspection: true,
+  playground: {
+    endpoint: '/dev/graphql',
+  },
+});
+
+export const graphqlHandler = server.createHandler({
+  cors: {
+    origin: '*',
+    credentials: true,
+  },
+});
+```
 
 ## Serverless Framework
 

@@ -16,9 +16,11 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "remark": "^12.0.0",
-    "remark-html": "^11.0.2",
-    "styled-components": "^5.1.0",
-    "tailwindcss": "^1.4.6"
+    "rehype-shiki": "^0.0.8",
+    "rehype-stringify": "^8.0.0",
+    "remark-parse": "^8.0.2",
+    "remark-rehype": "^7.0.0",
+    "tailwindcss": "^1.4.6",
+    "unified": "^9.0.0"
   }
 }

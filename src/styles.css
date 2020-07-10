@@ -56,3 +56,15 @@
 .markdown a {
   @apply underline;
 }
+
+.markdown pre {
+  @apply overflow-scroll p-2 rounded-snippet mb-4;
+}
+
+.markdown p code {
+  border-radius: 5px;
+  padding: 2px;
+  background-color: #eceff4;
+  color: #2e3440;
+  font-size: 1rem;
+}
