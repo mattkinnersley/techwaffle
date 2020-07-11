@@ -70,7 +70,7 @@ Where `src/graphql` is our entry file and `graphqlHandler` is our exported funct
 
 ## Still feel like this could be made quicker?
 
-No worries, I have created a [Serverless Apollo Server Starter](hhttps://github.com/kinnersleym/serverless-apollo-server-starter) repository that includes all I have talked about. Now all you have to do is run a few commands and you can have a deployed GraphQL Server in seconds!
+No worries, I have created a [Serverless Apollo Server Starter](https://github.com/kinnersleym/serverless-apollo-server-starter) repository that includes all I have talked about. Now all you have to do is run a few commands and you can have a deployed GraphQL Server in seconds!
 
 Just follow these simple steps:
 

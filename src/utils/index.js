@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeShiki from 'rehype-shiki';
 import html from 'rehype-stringify';
+import externalLinks from 'remark-external-links';
 const contentDir = join(process.cwd(), 'content');
 
 export const getPostSlugs = () => {
@@ -48,6 +49,7 @@ export const getAllPosts = (fields = []) => {
 export const markdownToHtml = async (markdown) => {
   const result = await unified()
     .use(remarkParse)
+    .use(externalLinks)
     .use(remarkRehype)
     .use(rehypeShiki)
     .use(html)

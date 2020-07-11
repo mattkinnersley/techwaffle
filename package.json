@@ -18,6 +18,7 @@
     "react-dom": "^16.13.0",
     "rehype-shiki": "^0.0.8",
     "rehype-stringify": "^8.0.0",
+    "remark-external-links": "^6.1.0",
     "remark-parse": "^8.0.2",
     "remark-rehype": "^7.0.0",
     "tailwindcss": "^1.4.6",
