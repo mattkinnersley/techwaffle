@@ -5,13 +5,13 @@ date: '2020-07-10T14:55:38.039Z'
 author: 'Matt Kinnersley'
 ---
 
-One of the best things about the Serverless Framework is the amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it. This is why I wanted to find a way to see if I could deploy a GraphQL server on AWS Lambda with some of my favourite plugins that not only make your development faster, but also your Lambda cold starts.
+One of the best things about the Serverless Framework is how little amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it. This is why I wanted to see if I could deploy a GraphQL server on AWS Lambda with some of my favourite plugins that not only make your development faster, but also your Lambda cold starts.
 
 ## What are 'Cold Starts'?
 
 When you are following the Serverless methodology, one of the sacrifices you make for the ease of use and low-cost, is performance. The reason for this is so that if no one is using your service, it won't just sit idly in the background. Now, this is great for keeping your costs down, but when the first person wants to use the service again, they will have to wait for the service to spin back up.
 
-One of the many ways to combat this is to keep the final build size of your service down to a minimum. This is where webpack comes in, or in our case, [serverless-bundle](https://github.com/AnomalyInnovations/serverless-bundle).
+One of the many ways to combat this is to keep the final build size of your service down to a minimum. The smaller the bundle, the faster it spins up. This is where webpack comes in, or in our case, [serverless-bundle](https://github.com/AnomalyInnovations/serverless-bundle).
 
 ## How does it work?
 
@@ -47,7 +47,7 @@ export const graphqlHandler = server.createHandler({
 
 ## Serverless Framework
 
-When using the Serverless Framework, you follow the IaC (Infrastructure as code) approach. This can be done with one file, `serverless.yml`. In here you can define what resources you want to use, whether that's a DynamoDB table for a NoSQL store, an S3 Bucket for simple object storage or maybe Cognito for handling your authorisation. You can also define how you want API Gateway to route traffic to your Lambda function. What we want for our GraphQL server is to route the traffic to one endpoint - `/graphql`.
+When using the Serverless Framework, you are following the IaC (Infrastructure as code) approach. This can be done with one file, `serverless.yml`. In here you can define what resources you want to use, whether that's a DynamoDB table for a NoSQL store, an S3 Bucket for simple object storage or maybe Cognito for handling your authorisation. You can also define how you want API Gateway to route traffic to your Lambda function. What we want for our GraphQL server is to route the traffic to one endpoint - `/graphql`.
 
 In our `serverless.yml` file we want to add in this code snippet:
 
