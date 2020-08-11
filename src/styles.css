@@ -58,7 +58,7 @@
 }
 
 .markdown pre {
-  @apply overflow-scroll p-2 rounded-snippet mb-4;
+  @apply overflow-auto p-2 rounded-snippet mb-4;
 }
 
 .markdown p code {
