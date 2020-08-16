@@ -32,7 +32,7 @@ const Layout = ({ title, description, isHomepage = false, children }) => {
           <Link href="/">
             <a
               className={`transition-all duration-500 ease-in-out -mt-32 ${cn({
-                'm-logo': scrolled || !isHomepage,
+                '-mb-32': scrolled || !isHomepage,
               })}`}
             >
               <Logo className="h-12"></Logo>
