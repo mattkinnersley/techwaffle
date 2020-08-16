@@ -8,6 +8,9 @@ module.exports = {
       borderRadius: {
         snippet: '15px',
       },
+      margin: {
+        logo: '0 !important'
+      }
     },
   },
   variants: {

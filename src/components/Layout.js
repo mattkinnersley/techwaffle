@@ -23,7 +23,7 @@ const Layout = ({ title, description, isHomepage = false, children }) => {
       <div className="min-w-full font-quicksand text-xl flex flex-col items-center">
         <nav
           className={`bg-white fixed transition-all duration-500 ease-in-out flex items-center justify-around min-w-full p-3 top-0 h-20 ${cn(
-            { "shadow-md": scrolled }
+            { "shadow-lg": scrolled }
           )}`}
         >
           <Link href="/">
@@ -31,8 +31,8 @@ const Layout = ({ title, description, isHomepage = false, children }) => {
           </Link>
           <Link href="/">
             <a
-              className={`transition-all duration-500 ease-in-out ${cn({
-                '-mt-32': !scrolled && isHomepage,
+              className={`transition-all duration-500 ease-in-out -mt-32 ${cn({
+                'm-logo': scrolled || !isHomepage,
               })}`}
             >
               <Logo className="h-12"></Logo>
