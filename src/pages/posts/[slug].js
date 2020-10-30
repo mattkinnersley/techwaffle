@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "../../utils";
-import Layout from "../../components/Layout";
 import Social from "../../components/about/Social";
-import { twitterIcon } from "../../components/Twitter";
+import { twitterIcon } from "../../components/social/Twitter";
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -10,14 +9,14 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout title={`${post.title} - Tech Waffle`} description={post.excerpt}>
+    <>
       <article className="flex flex-col">
         <div className="text-center">
           <h1 className="text-5xl font-extrabold">{post.title}</h1>
         </div>
         <div
           className="markdown min-w-full"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: post.htmlContent }}
         />
       </article>
       <h3 className="text-center mt-4 mb-2">Follow me on twitter</h3>
@@ -26,27 +25,24 @@ export default function Post({ post }) {
         icon={twitterIcon}
         handle="@techwaffler"
       ></Social>
-    </Layout>
+    </>
   );
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const post = getPostBySlug(slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "excerpt",
-    "ogImage",
-    "coverImage",
-  ]);
-  const content = await markdownToHtml(post.content || "");
+  const { title, date, author, content, excerpt } = getPostBySlug(slug);
+  const htmlContent = await markdownToHtml(content || "");
   return {
     props: {
+      title: `${title} - Tech Waffle`,
+      description: excerpt,
       post: {
-        ...post,
-        content,
+        title,
+        date,
+        author,
+        htmlContent,
+        excerpt,
+        slug,
       },
     },
   };
