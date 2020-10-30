@@ -1,48 +1,32 @@
-import fs from 'fs';
-import { join } from 'path';
-import matter from 'gray-matter';
-import unified from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeShiki from 'rehype-shiki';
-import html from 'rehype-stringify';
-import externalLinks from 'remark-external-links';
-const contentDir = join(process.cwd(), 'content');
+import fs from "fs";
+import { join } from "path";
+import matter from "gray-matter";
+import unified from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeShiki from "rehype-shiki";
+import html from "rehype-stringify";
+import externalLinks from "remark-external-links";
+const contentDir = join(process.cwd(), "content");
 
 export const getPostSlugs = () => {
-  return fs.readdirSync(contentDir).map((slug) => slug.replace(/\.md$/, ''));
+  return fs.readdirSync(contentDir).map((slug) => slug.replace(/\.md$/, ""));
 };
 
-export const getPostBySlug = (slug, fields = []) => {
+export const getPostBySlug = (slug) => {
   const fullPath = join(contentDir, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const items = {};
-
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = slug;
-    }
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
+  return { ...data, content, slug };
 };
 
-export const getAllPosts = (fields = []) => {
+export const getAllPosts = () => {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+    .map((slug) => getPostBySlug(slug))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? '-1' : '1'));
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 };
 
