@@ -19,7 +19,7 @@ const Nav = ({ isHomepage }) => {
   const showLogo = !isHomepage || scrolled;
   return (
     <nav
-      className={`z-10 bg-white fixed transition-all duration-500 ease-in-out flex items-center justify-around min-w-full p-3 top-0 h-20 ${cn(
+      className={`z-10 bg-white fixed transition-shadow duration-500 ease-in-out flex items-center justify-around min-w-full p-3 top-0 h-20 ${cn(
         { "shadow-lg": scrolled }
       )}`}
     >
