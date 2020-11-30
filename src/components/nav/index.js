@@ -33,7 +33,7 @@ const Nav = ({ isHomepage }) => {
             "-mb-32": showLogo,
           })}`}
         >
-          <Logo size="48"></Logo>
+          <Logo size="48" lazy></Logo>
         </a>
       </Link>
 
