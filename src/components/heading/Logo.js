@@ -8,7 +8,7 @@ const Logo = ({ size, className }) => (
     alt="waffle logo"
     height={size}
     width={size}
-    lazy
+    lazy="true"
   ></Image>
 );
 
