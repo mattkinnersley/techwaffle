@@ -5,10 +5,10 @@ import { twitterIcon } from "../components/social/Twitter";
 const About = () => (
   <div className="text-center">
     <div>
-      <h1 className="text-4xl">About Me</h1>
+      <h1 className="text-5xl font-extrabold">About Me</h1>
     </div>
     <div className="flex flex-col my-5">
-      <p className="mb-4">Hi, I'm Matt Kinnersley</p>
+      <h4 className="mb-4 text-2xl">Hi, I'm Matt Kinnersley</h4>
       <p className="mb-4">
         I'm a software developer looking to help people where I can. I am
         primarily focused on web development but I am interested in other areas

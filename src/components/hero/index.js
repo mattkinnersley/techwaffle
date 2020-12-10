@@ -7,8 +7,8 @@ const HeroPost = ({ post: { title, slug, date, excerpt } }) => {
     <div className="mb-16 min-h-48">
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
         <a>
-          <div className="transition-shadow duration-300 ease-in-out border-2 border-black flex flex-col md:flex-row p-4 thumbnail-shadow h-full overflow-hidden">
-            <div className="border-black flex flex-auto items-center justify-between mb-4 md:border-r-2 md:flex-col md:mb-0 md:pr-4 md:w-4/12">
+          <div className="transition-shadow duration-300 ease-in-out rounded-md border-2 border-gray-800 flex flex-col md:flex-row p-4 thumbnail-shadow h-full overflow-hidden">
+            <div className="border-gray-800 flex flex-auto items-center justify-between mb-4 md:border-r-2 md:flex-col md:mb-0 md:pr-4 md:w-4/12">
               <h3 className="font-quicksand-bold md:mb-4 pr-8 md:pr-0 text-xl md:text-center">
                 {title}
               </h3>
