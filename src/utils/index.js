@@ -7,7 +7,7 @@ import remarkRehype from "remark-rehype";
 import rehypeShiki from "rehype-shiki";
 import html from "rehype-stringify";
 import externalLinks from "remark-external-links";
-const contentDir = join(process.cwd(), "content");
+const contentDir = join(process.cwd(), "content/markdown");
 
 export const getPostSlugs = () => {
   return fs.readdirSync(contentDir).map((slug) => slug.replace(/\.md$/, ""));
