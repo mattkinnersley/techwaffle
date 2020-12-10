@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         waffle: "#fcc14c",
+        waffleLight: "#ffdf9f",
         darkGrey: "#212121",
         lightGrey: "#313131",
       },

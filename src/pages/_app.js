@@ -3,10 +3,10 @@ import "../styles.css";
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({
   Component,
-  pageProps: { isHomepage = false, title, description, ...pageProps },
+  pageProps: { title, description, ...pageProps },
 }) {
   return (
-    <Layout isHomepage={isHomepage} title={title} description={description}>
+    <Layout title={title} description={description}>
       <Component {...pageProps} />
     </Layout>
   );

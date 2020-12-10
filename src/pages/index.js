@@ -31,7 +31,6 @@ export const getStaticProps = async () => {
     props: {
       posts,
       hero,
-      isHomepage: true,
       title: "Tech Waffle",
       description: "Just a load of waffle",
     },
