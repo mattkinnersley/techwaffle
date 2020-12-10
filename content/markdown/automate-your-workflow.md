@@ -1,0 +1,80 @@
+---
+title: "Automate Your Workflow"
+excerpt: "GitHub Actions Vs GitHub Apps"
+date: "2020-12-10T11:01:13.448Z"
+author: "Matt Kinnersley"
+---
+
+When it comes to writing software, you often find that you repeat the same small tasks over and over again. Not only does this waste a lot of time, it's incredibly tedious.
+
+Imagine this scenario:
+
+You spend an extra two minutes deploying your app every time you make a change to your code. Doesn't sound too bad right? However, think about how many times you could be making these small changes in a day. Then multiply that by how many times you do that in a week, then a month. Before you know it, after a year of developing an app, you've spent countless hours on deploying, redeploying, re-redeploying... You get the idea.
+
+And that's just one of the many small repetitive tasks you have to do every day.
+
+This is even more of a problem if you're working in a team. Multiply those hours by the number of developers working on the project and you can see how costly this can really become.
+
+"Does it really matter if I spend some of my time on the little things?"
+
+Here's the thing, it's not just about what you *are* doing, it's also about what you're *not* doing. You could be spending that time adding features, improving UX, or more importantly, giving yourself a break. It's easy to forget that your time is precious. Don't waste it.
+
+"OK Matt, I get it, I'm wasting my time and my teams time. What can I do about it?"
+
+I'm glad you asked.
+
+In this article I'm going to discuss two ways to automate your workflow: GitHub Actions and GitHub Apps. Keep in mind, however, there are many ways you can get into automating your most mundane work.
+
+## GitHub Actions
+
+Think of these as little bits of code that run whenever something happens with your GitHub repository.
+
+Actions are the building blocks of what is known as a *workflow.*
+
+When someone interacts with the repository, whether that be a new pull request or a new comment on an issue, GitHub checks if you have any workflows defined that need to be run as a result of this event. In a workflow, you get to choose what events GitHub needs to look out for. Once your workflow is triggered, it will run through a series of jobs that you defined. A job can be thought of as a step in your workflow. Each job has its own set up steps to execute. These steps are what run your Actions.
+
+![A diagram of how GitHub Actions work](/images/github-action.png)
+
+An Action can be created with Docker containers, JavaScript or a combination of steps to form a *Composite Run Steps Action.*
+
+If you are familiar with writing JavaScript, then I would recommend you start with creating your Actions this way. Not only do they allow you to separate the Action code from the environment setup, they also execute faster than a Docker container Action as they run directly on the runner and use the binaries that are already installed in the virtual environment.
+
+You can find many already created by the community in the GitHub marketplace so you don't even have to write any yourself to start getting the benefits of automation with GitHub Actions.
+
+What makes Actions so great is the fact that they can be as simple of complex as you like. Each workflow can have many jobs and each job can have many steps. The action that your step runs can also be made up of many steps performing their own function.
+
+You can see how they can quickly become very powerful tools.
+
+![A diagram of what a more complex GitHub Action could look like](/images/complex-github-action.png)
+
+## GitHub Apps
+
+Similarly to Actions, GitHub Apps can also respond to events on a repository. The difference is, you have to host it yourself. You can think of GitHub Apps as a web app with an active webhook that GitHub can send events to. You then register your app by giving GitHub your webhook endpoint that you want to receive events to.
+
+GitHub Apps do not have to live in the repository you want to use them in. They are installed directly on organisations or user accounts. This makes them first-class actors within GitHub which means you don't need to setup any new users or bots to get them to work. Their access can also be scoped to specific repositories. This also means you must be the organisation owner or have admin permissions in that repository to install them.
+
+Unlike Actions that are defined in your code repository and run on GitHubs servers, GitHub Apps are external entities, outside of the control of GitHub. They are constantly running in the background, wherever it's deployed.
+
+![A diagram of how GitHub Apps work](/images/github-app.png)
+
+This gives GitHub Apps a couple of significant advantages. The first, depending on the hosting provider, is speed of execution. An app living on a server, is already up and running once it is deployed. All it needs is the request to come through and it can start doing whatever it has been programmed to do. Conversely, Actions need to wait for their workflow to be triggered, wait for the virtual machine to spin up and then it can begin performing its function.
+
+Another advantage is how the app exists in your workflow. I have found that an app just *feels* cleaner to use in your workflow. Don't get me wrong, there is more work involved in building and deploying the app, but once it is running, it is unobtrusive and you can quite often forget about it.
+
+If you want to build your own GitHub App, check out Probot. 
+
+## Which one should you pick?
+
+As with most technology, it really does depend on your use case. Here is a quick checklist that might help you decide:
+
+### Actions
+
+- Quick to setup
+- Easy shareable and configurable with secrets
+- Doesn't need to be hosted by you.
+
+### Apps
+
+- Usually faster than actions
+- Act as it's own entity within GitHub
+- Works with GitHub's old "per-repo" billing plan (which does not currently support actions).

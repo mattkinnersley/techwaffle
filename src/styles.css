@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Lemon';
-  src: url('../public/fonts/Lemon-Regular.ttf');
+  font-family: "Lemon";
+  src: url("../public/fonts/Lemon-Regular.ttf");
 }
 @font-face {
-  font-family: 'Quicksand';
-  src: url('../public/fonts/Quicksand-VariableFont_wght.ttf');
+  font-family: "Quicksand";
+  src: url("../public/fonts/Quicksand-VariableFont_wght.ttf");
 }
 
 .thumbnail-shadow {
@@ -23,15 +23,15 @@
 }
 
 .font-lemon {
-  font-family: 'Lemon', cursive;
+  font-family: "Lemon", cursive;
 }
 
 .font-quicksand {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .font-quicksand-bold {
-  font-variation-settings: 'wght' 700;
-  font-family: 'Quicksand', sans-serif;
+  font-variation-settings: "wght" 700;
+  font-family: "Quicksand", sans-serif;
 }
 
 .markdown {
@@ -43,6 +43,19 @@
 .markdown ol,
 .markdown blockquote {
   @apply my-6;
+}
+.markdown p img {
+  @apply py-2 m-auto;
+}
+@screen sm {
+  .markdown p img {
+    @apply w-10/12;
+  }
+}
+@screen md {
+  .markdown p img {
+    @apply w-8/12;
+  }
 }
 
 .markdown h2 {
@@ -67,4 +80,8 @@
   background-color: #eceff4;
   color: #2e3440;
   font-size: 1rem;
+}
+
+.markdown ul {
+  @apply list-inside list-disc;
 }
