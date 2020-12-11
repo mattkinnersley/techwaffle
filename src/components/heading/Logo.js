@@ -5,7 +5,7 @@ const Logo = ({ size, className, lazy = false }) => (
   <Image
     className={className}
     src="/waffle.png"
-    alt="waffle logo"
+    alt="round waffle cartoon"
     height={size}
     width={size}
     lazy={lazy.toString()}
