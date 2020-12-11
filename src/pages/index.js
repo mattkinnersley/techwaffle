@@ -31,8 +31,9 @@ export const getStaticProps = async () => {
     props: {
       posts,
       hero,
-      title: "Tech Waffle",
-      description: "Just a load of waffle",
+      title: "Tech Waffle - Just a load of waffle",
+      description:
+        "A blog about tech, web development, software engineering and more.",
     },
   };
 };

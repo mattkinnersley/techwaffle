@@ -1,6 +1,7 @@
 ---
 title: 'Serverless Apollo Server'
-excerpt: 'Running Apollo Server with webpack on the Serverless Framework'
+subtitle: 'Running Apollo Server with webpack on the Serverless Framework'
+excerpt: 'One of the best things about the Serverless Framework is how little amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it.'
 date: '2020-07-10T14:55:38.039Z'
 author: 'Matt Kinnersley'
 ---

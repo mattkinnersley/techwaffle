@@ -30,11 +30,13 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const { title, date, author, content, excerpt } = getPostBySlug(slug);
+  const { title, subtitle, date, author, content, excerpt } = getPostBySlug(
+    slug
+  );
   const htmlContent = await markdownToHtml(content || "");
   return {
     props: {
-      title: `${title} - Tech Waffle`,
+      title: `${title}: ${subtitle} - Tech Waffle`,
       description: excerpt,
       post: {
         title,

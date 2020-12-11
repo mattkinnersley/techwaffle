@@ -32,10 +32,8 @@ const About = () => (
 
 export const getStaticProps = async () => ({
   props: {
-    title: "About Me",
-    description: `I'm a software developer looking to help people where I can. I am
-            primarily focused on web development but I am interested in other
-            areas too. This blog will be a place for me to document my learning.`,
+    title: "About Me - Tech Waffle",
+    description: `I'm a software developer looking to help people where I can. I am primarily focused on web development but I am interested in other areas too. This blog will be a place for me to document my learning.`,
   },
 });
 

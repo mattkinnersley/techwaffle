@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import moment from "moment";
 
-const HeroPost = ({ post: { title, slug, date, excerpt } }) => {
+const HeroPost = ({ post: { title, slug, date, subtitle } }) => {
   return (
     <div className="mb-16 min-h-48">
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -17,7 +17,7 @@ const HeroPost = ({ post: { title, slug, date, excerpt } }) => {
               </span>
             </div>
             <div className="flex flex-auto items-center leading-loose md:pl-4 md:w-8/12">
-              <p>{excerpt}</p>
+              <p>{subtitle}</p>
             </div>
           </div>
         </a>

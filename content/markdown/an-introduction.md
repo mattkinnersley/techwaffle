@@ -1,6 +1,7 @@
 ---
 title: "An Introduction"
-excerpt: "I decided to start a blog. Here's why."
+subtitle: "I decided to start a blog. Here's why."
+excerpt: "I'm starting this blog to give me something to do during the current COVID-19 crisis. It will serve as a way for me to document my learning and as a resource for others. I am by no means an expert but I am hoping through this blog, I can help someone with a problem they are stuck on."
 date: "2020-05-21T15:56:45.300Z"
 author: "Matt Kinnersley"
 ---

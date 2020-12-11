@@ -1,6 +1,7 @@
 ---
 title: "WebSockets vs GraphQL Subscriptions"
-excerpt: "What's the difference between these real-time data technologies?"
+subtitle: "What's the difference between these real-time data technologies?"
+excerpt: "At the moment, if you wanted to create an application that has some kind of real-time functionality like an instant chat, multiplayer game or social media, the way you would go about it would probably be with either WebSockets or GraphQL Subscriptions."
 date: "2020-06-13T10:01:52.695Z"
 author: "Matt Kinnersley"
 ---
