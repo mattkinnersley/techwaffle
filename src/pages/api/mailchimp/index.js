@@ -23,10 +23,19 @@ export default async function handler(req, res) {
       });
     }
   } catch (error) {
-    console.error(error);
-    res.status(error.status || 500).json({
-      error: "Unexpected Server Error",
-      errorMessage: "Sorry, something went wrong, please try again later.",
-    });
+    if (
+      error.status === 400 &&
+      error?.response?.body?.title === "Member Exists"
+    ) {
+      res.status(400).json({
+        error: "Member Exists",
+        message: "This email address has already been used.",
+      });
+    } else {
+      res.status(500).json({
+        error: "Unexpected Server Error",
+        message: "Sorry, something went wrong, please try again later.",
+      });
+    }
   }
 }
