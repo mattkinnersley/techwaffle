@@ -19,13 +19,14 @@ export default async function handler(req, res) {
     } else {
       res.status(400).json({
         error: "Email validation failed",
-        message: "Please enter a valid email address.",
+        errorMessage: "Please enter a valid email address.",
       });
     }
   } catch (error) {
-    res.status(500).json({
-      error: "Server Error",
-      message: "Sorry, something went wrong, please try again later.",
+    console.error(error);
+    res.status(error.status || 500).json({
+      error: "Unexpected Server Error",
+      errorMessage: "Sorry, something went wrong, please try again later.",
     });
   }
 }
