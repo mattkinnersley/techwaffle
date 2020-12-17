@@ -1,6 +1,4 @@
 import React from "react";
-import Social from "../components/about/Social";
-import { twitterIcon } from "../components/social/Twitter";
 
 const About = () => (
   <div className="text-center">
@@ -20,13 +18,6 @@ const About = () => (
         time.
       </p>
     </div>
-    <div className="flex flex-col items-center min-w-full"></div>
-    <p className="mb-4">Follow me on twitter for updates</p>
-    <Social
-      href="https://twitter.com/techwaffler"
-      icon={twitterIcon}
-      handle="@techwaffler"
-    ></Social>
   </div>
 );
 

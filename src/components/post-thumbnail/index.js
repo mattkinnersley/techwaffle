@@ -5,7 +5,7 @@ import moment from "moment";
 
 const PostThumbnail = ({ post: { title, slug, date } }) => {
   return (
-    <div className="mb-8">
+    <div className="mb-8 active:shadow-inner">
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
         <a>
           <div className="transition-shadow duration-300 ease-in-out rounded-md border-2 border-gray-800 flex flex-col md:flex-row items-center justify-between p-4 thumbnail-shadow text-center">
