@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "../../utils";
-import Social from "../../components/about/Social";
-import { twitterIcon } from "../../components/social/Twitter";
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -19,12 +17,6 @@ export default function Post({ post }) {
           dangerouslySetInnerHTML={{ __html: post.htmlContent }}
         />
       </article>
-      <h3 className="text-center mt-4 mb-2">Follow me on twitter</h3>
-      <Social
-        href="https://twitter.com/techwaffler"
-        icon={twitterIcon}
-        handle="@techwaffler"
-      ></Social>
     </>
   );
 }
