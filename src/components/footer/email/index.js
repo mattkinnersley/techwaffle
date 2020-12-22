@@ -47,6 +47,8 @@ const EmailForm = () => {
   };
   const { isSubmitting, isSubmitSuccessful, isDirty } = formState;
 
+  const formValid = isDirty && !errors.email;
+
   return (
     <form
       className="flex flex-col justify-center items-center min-w-full mb-4"
@@ -70,10 +72,15 @@ const EmailForm = () => {
       </div>
 
       <input
-        className={`rounded-md border-2 mb-2 border-gray-800 p-2 bg-white min-w-full font-quicksand-bold duration-300 thumbnail-shadow transition cursor-pointer focus:outline-none active:shadow-inner disabled:opacity-50`}
+        className={`rounded-md border-2 mb-2 border-gray-800 p-2 bg-white min-w-full font-quicksand-bold duration-300 transition focus:outline-none active:shadow-inner disabled:opacity-50 ${cn(
+          {
+            "cursor-pointer thumbnail-shadow": formValid,
+            "cursor-not-allowed": !formValid,
+          }
+        )}`}
         name="submit"
         value={isSubmitting ? "..." : "Submit"}
-        disabled={!isDirty || errors.email}
+        disabled={!formValid}
         type="submit"
       />
       {errors.email && <span>{getErrorMessage(errors)}</span>}
