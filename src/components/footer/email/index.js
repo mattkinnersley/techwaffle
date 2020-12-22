@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import cn from "classnames";
 
 const getErrorMessage = ({ email }) => {
   let message = "";
@@ -44,7 +45,8 @@ const EmailForm = () => {
       setError("email", { type: "api", message: error.response.data.message });
     }
   };
-  const { isSubmitting, isSubmitSuccessful } = formState;
+  const { isSubmitting, isSubmitSuccessful, isDirty } = formState;
+
   return (
     <form
       className="flex flex-col justify-center items-center min-w-full mb-4"
@@ -52,28 +54,32 @@ const EmailForm = () => {
     >
       <div className="flex flex-col items-center mb-4 min-w-full">
         <input
-          className="min-w-full rounded-md border-2 border-gray-800 p-2 focus:outline-none"
+          className={`min-w-full rounded-md border-2 border-gray-800 p-2 focus:outline-none ${cn(
+            {
+              "border-red-600": errors.email,
+            }
+          )}`}
           type="text"
           placeholder="you@email.com"
           name="email"
           ref={register({
             required: true,
-            pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/g,
+            pattern: /^\S+@\S+\.\S+$/i,
           })}
         />
-        {errors && <span>{getErrorMessage(errors)}</span>}
-        {isSubmitSuccessful && !errors.email && (
-          <span>Thanks for subscribing!</span>
-        )}
       </div>
 
       <input
-        className="rounded-md border-2 border-gray-800 p-2 bg-white min-w-full font-quicksand-bold duration-300 thumbnail-shadow transition cursor-pointer focus:outline-none active:shadow-inner"
+        className={`rounded-md border-2 mb-2 border-gray-800 p-2 bg-white min-w-full font-quicksand-bold duration-300 thumbnail-shadow transition cursor-pointer focus:outline-none active:shadow-inner disabled:opacity-50`}
         name="submit"
         value={isSubmitting ? "..." : "Submit"}
-        disabled={isSubmitting}
+        disabled={!isDirty || errors.email}
         type="submit"
       />
+      {errors.email && <span>{getErrorMessage(errors)}</span>}
+      {isSubmitSuccessful && !errors.email && (
+        <span>Thanks for subscribing!</span>
+      )}
     </form>
   );
 };

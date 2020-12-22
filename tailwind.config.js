@@ -14,6 +14,7 @@ module.exports = {
     },
   },
   variants: {
+    opacity: ["disabled"],
     textColor: ["responsive", "hover", "focus", "group-hover"],
 
     boxShadow: ["active"],

@@ -7,7 +7,7 @@ client.setConfig({
 
 export default async function handler(req, res) {
   try {
-    const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/g;
+    const emailRegex = /^\S+@\S+\.\S+$/i;
     const email_address = req?.body?.email;
     const validEmail = email_address && emailRegex.test(email_address);
     if (validEmail) {
@@ -35,6 +35,7 @@ export default async function handler(req, res) {
       res.status(500).json({
         error: "Unexpected Server Error",
         message: "Sorry, something went wrong, please try again later.",
+        log: error,
       });
     }
   }
