@@ -4,7 +4,7 @@ import cn from "classnames";
 const ToggleButton = ({ theme, setTheme }) => {
   return (
     <div
-      className={`mx-2 dark-toggle-button ${cn({
+      className={`ml-2 dark-toggle-button ${cn({
         darkMode: theme === "dark",
       })}`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
