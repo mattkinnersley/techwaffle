@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script src="js/theme.js"></script>
+          <script src="/js/theme.js"></script>
         </Head>
         <body>
           <Main />
