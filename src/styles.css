@@ -12,7 +12,7 @@
 }
 
 .thumbnail-shadow {
-  box-shadow: 5px 5px black;
+  box-shadow: 5px 5px #1f2a37;
 }
 .dark .thumbnail-shadow {
   box-shadow: 5px 5px #fffbeb;
