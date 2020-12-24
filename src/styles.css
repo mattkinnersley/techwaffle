@@ -54,7 +54,7 @@
   transition: background-color 0.5s ease-in-out;
 }
 
-.dark-toggle-button.darkMode {
+html.dark .dark-toggle-button {
   @apply bg-gray-800;
   @apply border-yellow-50;
   box-shadow: inset 0px 0px 4px 0px #1a202c;
@@ -75,11 +75,11 @@
   transform: scale(1.2);
 }
 
-.darkMode > .dark-toggle-inner {
+html.dark .dark-toggle-inner {
   @apply bg-waffleLight;
   transform: translateX(1.5rem) !important;
 }
-.darkMode:hover > .dark-toggle-inner {
+html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   transform: translateX(1.5rem) scale(1.2) !important;
 }
 
