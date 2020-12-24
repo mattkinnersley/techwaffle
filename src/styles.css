@@ -12,14 +12,22 @@
 }
 
 .thumbnail-shadow {
-  box-shadow: 5px 5px;
+  box-shadow: 5px 5px black;
+}
+.dark .thumbnail-shadow {
+  box-shadow: 5px 5px #fffbeb;
 }
 .thumbnail-shadow:hover {
   box-shadow: none;
 }
 
 .logo-shadow {
-  text-shadow: 5px 5px #2d3748;
+  transition: text-shadow 1s ease-in-out;
+  text-shadow: 5px 5px #1f2a37;
+}
+
+.dark .logo-shadow {
+  text-shadow: none;
 }
 
 .font-lemon {
@@ -32,6 +40,47 @@
 .font-quicksand-bold {
   font-variation-settings: "wght" 700;
   font-family: "Quicksand", sans-serif;
+}
+
+.dark-toggle-button {
+  @apply bg-waffleLight;
+  width: 4rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+  border: 2px solid #1f2a37;
+  padding: 0.4rem;
+  box-shadow: inset 0px 0px 4px 0px #a58039;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.dark-toggle-button.darkMode {
+  @apply bg-gray-800;
+  @apply border-yellow-50;
+  box-shadow: inset 0px 0px 4px 0px #1a202c;
+}
+
+.dark-toggle-inner {
+  content: " ";
+  @apply bg-gray-800;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #1a202c;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 1px 1px 1px 0px #1a202c;
+}
+
+.dark-toggle-button:hover > .dark-toggle-inner {
+  transform: scale(1.2);
+}
+
+.darkMode > .dark-toggle-inner {
+  @apply bg-waffleLight;
+  transform: translateX(1.5rem) !important;
+}
+.darkMode:hover > .dark-toggle-inner {
+  transform: translateX(1.5rem) scale(1.2) !important;
 }
 
 .markdown {
@@ -71,17 +120,20 @@
 }
 
 .markdown pre {
-  @apply overflow-auto p-2 rounded-snippet mb-4;
+  @apply overflow-auto p-4 rounded-snippet mb-4;
 }
 
 .markdown p code {
   border-radius: 5px;
-  padding: 2px;
+  padding: 4px;
   background-color: #eceff4;
-  color: #2e3440;
+  color: #111927;
   font-size: 1rem;
+}
+.dark .markdown p code {
+  background-color: #fffbeb;
 }
 
 .markdown ul {
-  @apply list-inside list-disc;
+  @apply pl-5 list-disc;
 }

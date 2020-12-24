@@ -4,8 +4,9 @@ import Logo from "../heading/Logo";
 import cn from "classnames";
 import NavLink from "./NavLink";
 import { useRouter } from "next/router";
+import ToggleButton from "../dark-mode/ToggleButton";
 
-const Nav = () => {
+const Nav = ({ theme, setTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useRouter();
   const isHomepage = pathname === "/";
@@ -22,8 +23,11 @@ const Nav = () => {
   });
   return (
     <nav
-      className={`z-10 bg-white fixed transition-shadow duration-500 ease-in-out flex justify-center min-w-full top-0 h-20 ${cn(
-        { "shadow-lg": scrolled }
+      className={`transition duration-1000 z-10 bg-white fixed flex justify-center min-w-full top-0 h-20 ${cn(
+        {
+          "shadow-lg dark:bg-gray-800": scrolled,
+          "dark:bg-gray-900": !scrolled,
+        }
       )}`}
     >
       <div className="flex items-center justify-between container px-5 md:px-10 lg:px-32 md:mx-10">
@@ -32,7 +36,7 @@ const Nav = () => {
             <Logo size="48" lazy></Logo>
           </a>
         </Link>
-        <div>
+        <div className="flex items-center w-full justify-evenly sm:w-auto">
           <NavLink href="/" selected={isHomepage}>
             Home
           </NavLink>
@@ -40,6 +44,7 @@ const Nav = () => {
           <NavLink href="/about" selected={pathname === "/about"}>
             About
           </NavLink>
+          <ToggleButton theme={theme} setTheme={setTheme}></ToggleButton>
         </div>
       </div>
     </nav>
