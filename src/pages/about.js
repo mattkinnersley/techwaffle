@@ -1,12 +1,19 @@
 import React from "react";
+import Image from "next/image";
 
 const About = () => (
   <div className="text-center">
     <div>
       <h1 className="text-5xl font-extrabold">About Me</h1>
     </div>
-    <div className="flex flex-col my-5">
-      <h4 className="mb-4 text-2xl">Hi, I'm Matt Kinnersley</h4>
+    <div className="flex flex-col my-5 items-center">
+      <Image
+        className="rounded-full"
+        src="/images/matt.png"
+        width={200}
+        height={200}
+      ></Image>
+      <h4 className="my-4 text-3xl">Hi, I'm Matt</h4>
       <p className="mb-4">
         I'm a software developer looking to help people where I can. I am
         primarily focused on web development but I am interested in other areas

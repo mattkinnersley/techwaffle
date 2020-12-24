@@ -5,7 +5,7 @@ const ContactButton = ({ href, children }) => {
     <a
       href={href}
       target="_blank"
-      className="rounded-md border-2 border-gray-800 duration-300 flex group items-center p-2 thumbnail-shadow transition bg-white"
+      className="transition-shadow duration-300 rounded-md border-2 border-gray-800 flex group items-center p-2 thumbnail-shadow bg-white dark:bg-gray-800 dark:border-yellow-50"
     >
       {children}
     </a>

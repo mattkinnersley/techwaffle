@@ -56,7 +56,7 @@ const EmailForm = () => {
     >
       <div className="flex flex-col items-center mb-4 min-w-full">
         <input
-          className={`min-w-full rounded-md border-2 border-gray-800 p-2 focus:outline-none ${cn(
+          className={`min-w-full rounded-md border-2 border-gray-800 dark:bg-gray-600 p-2 focus:outline-none ${cn(
             {
               "border-red-600": errors.email,
             }
@@ -72,9 +72,9 @@ const EmailForm = () => {
       </div>
 
       <input
-        className={`rounded-md border-2 mb-2 border-gray-800 p-2 bg-white min-w-full font-quicksand-bold duration-300 transition focus:outline-none active:shadow-inner disabled:opacity-50 ${cn(
+        className={`transition-borderShadow duration-300 rounded-md border-2 mb-2 border-gray-800 p-2 bg-white dark:bg-gray-600 min-w-full font-quicksand-bold focus:outline-none active:shadow-inner disabled:opacity-25 ${cn(
           {
-            "cursor-pointer thumbnail-shadow": formValid,
+            "cursor-pointer thumbnail-shadow dark:border-yellow-50": formValid,
             "cursor-not-allowed": !formValid,
           }
         )}`}

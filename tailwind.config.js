@@ -1,5 +1,6 @@
 module.exports = {
   purge: ["./src/components/**/*.js", "./src/pages/**/*.js"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -11,13 +12,18 @@ module.exports = {
       borderRadius: {
         snippet: "15px",
       },
+      transitionProperty: {
+        background: "background-color",
+        borderShadow: "box-shadow, border-color",
+      },
     },
   },
   variants: {
-    opacity: ["disabled"],
-    textColor: ["responsive", "hover", "focus", "group-hover"],
-
-    boxShadow: ["active"],
+    extend: {
+      opacity: ["disabled"],
+      textColor: ["responsive", "hover", "focus", "group-hover"],
+      boxShadow: ["active"],
+    },
   },
   plugins: [],
 };
