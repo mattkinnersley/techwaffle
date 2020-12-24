@@ -6,17 +6,20 @@ import Container from "./Container";
 import cn from "classnames";
 
 const Layout = ({ title, description, children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.theme;
+    }
+    return "light";
+  });
 
   const setLocalTheme = (theme) => {
     setTheme(theme);
-    localStorage.theme = theme;
+    window.localStorage.theme = theme;
   };
 
   useEffect(() => {
-    if (localStorage) {
-      setLocalTheme(localStorage.theme);
-    }
+    setLocalTheme(window.localStorage.theme || "light");
   }, []);
 
   return (
