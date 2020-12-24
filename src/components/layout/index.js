@@ -8,6 +8,7 @@ import cn from "classnames";
 const Layout = ({ title, description, children }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
+      console.log("default: " + window.localStorage.theme);
       window.localStorage.theme;
     }
     return "light";
@@ -15,10 +16,12 @@ const Layout = ({ title, description, children }) => {
 
   const setLocalTheme = (theme) => {
     setTheme(theme);
+    console.log("setting theme: " + theme);
     window.localStorage.theme = theme;
   };
 
   useEffect(() => {
+    console.log("useEffect: " + window.localStorage.theme);
     setLocalTheme(window.localStorage.theme || "light");
   }, []);
 
