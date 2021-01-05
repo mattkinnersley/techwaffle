@@ -42,7 +42,7 @@ If you are familiar with writing JavaScript, then I would recommend you start wi
 
 You can find many already created by the community in the GitHub marketplace so you don't even have to write any yourself to start getting the benefits of automation with GitHub Actions.
 
-What makes Actions so great is the fact that they can be as simple of complex as you like. Each workflow can have many jobs and each job can have many steps. The action that your step runs can also be made up of many steps performing their own function.
+What makes Actions so great is the fact that they can be as simple or as complex as you like. Each workflow can have many jobs and each job can have many steps. The action that your step runs can also be made up of many steps performing their own function.
 
 You can see how they can quickly become very powerful tools.
 
