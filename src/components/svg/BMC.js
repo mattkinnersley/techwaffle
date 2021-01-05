@@ -7,7 +7,7 @@ const BMC = () => {
       width="109pt"
       height="24pt"
       viewBox="0 0 109 24"
-      className="transition fill-current"
+      className="fill-current"
     >
       <g id="surface1">
         <path d="M 14.765625 5.582031 L 14.75 5.574219 L 14.710938 5.5625 C 14.726562 5.574219 14.746094 5.582031 14.765625 5.582031 Z M 14.765625 5.582031 " />
