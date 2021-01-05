@@ -1,5 +1,7 @@
 import React from "react";
+import Button from "../Button";
 import Contact from "../contact";
+import BMC from "../svg/BMC";
 import EmailForm from "./email";
 
 const Footer = () => {
@@ -13,6 +15,12 @@ const Footer = () => {
         <EmailForm />
       </div>
       <Contact />
+      <div className="mt-2 flex flex-col items-center">
+        <h3 className="text-2xl font-quicksand-bold mb-2">Support my work</h3>
+        <Button href="https://www.buymeacoffee.com/techwaffle">
+          <BMC />
+        </Button>
+      </div>
     </footer>
   );
 };

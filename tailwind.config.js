@@ -8,6 +8,7 @@ module.exports = {
         waffleLight: "#ffdf9f",
         darkGrey: "#212121",
         lightGrey: "#313131",
+        bmcYellow: "#ffdd00",
       },
       borderRadius: {
         snippet: "15px",
