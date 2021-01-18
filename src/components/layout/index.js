@@ -4,6 +4,7 @@ import Meta from "../meta";
 import Nav from "../nav";
 import Container from "./Container";
 import cn from "classnames";
+import { sendScreenViewEvent } from "../../utils/ga";
 
 const Layout = ({ title, description, children }) => {
   const [theme, setTheme] = useState(() => {
@@ -19,6 +20,10 @@ const Layout = ({ title, description, children }) => {
     }
     document.documentElement.className = theme;
   }, [theme]);
+
+  useEffect(() => {
+    sendScreenViewEvent({ title });
+  }, [title]);
 
   return (
     <div>
