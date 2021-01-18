@@ -4,4 +4,4 @@ function gtag() {
 }
 gtag("js", new Date());
 
-gtag("config", "G-8QHRB6454Z");
+gtag("config", "G-8QHRB6454Z", { send_page_view: false });
