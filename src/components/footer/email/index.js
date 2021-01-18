@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import cn from "classnames";
+import { sendSignUpEvent } from "../../../utils/ga";
 
 const getErrorMessage = ({ email }) => {
   let message = "";
@@ -39,6 +40,7 @@ const EmailForm = () => {
       const { data } = await axios.post("/api/mailchimp", formData);
       if (data?.status === "subscribed") {
         reset();
+        sendSignUpEvent({ method: "Mailchimp" });
       }
     } catch (error) {
       console.log(error);
