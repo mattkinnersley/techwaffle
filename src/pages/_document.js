@@ -11,6 +11,11 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <script src="/js/theme.js"></script>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-8QHRB6454Z"
+          ></script>
+          <script src="/js/ga.js"></script>
         </Head>
         <body>
           <Main />
