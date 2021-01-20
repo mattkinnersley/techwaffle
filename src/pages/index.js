@@ -33,7 +33,7 @@ export const getStaticProps = async () => {
       hero,
       title: "Tech Waffle - Just a load of waffle",
       description:
-        "A blog about tech, web development, software engineering and more.",
+        "A tech blog that has tutorials, web development tips, best practices and more. Find out about the latest technology in JavaScript and software engineering.",
     },
   };
 };
