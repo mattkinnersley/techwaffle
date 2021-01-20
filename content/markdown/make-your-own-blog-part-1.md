@@ -6,7 +6,7 @@ date: "2021-01-20T10:10:01.152Z"
 author: "Matt Kinnersley"
 ---
 
-Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document learning and gives you the ability to share it all with others. You can begin easily with a website builder like Squarespace or Wix, but for me it's been much more rewarding building it myself from scratch. It's more flexible and every pixel can be customised to your liking. If you've ever been frustrated with drag and drop, building blocks, preset wrangling style designing that never quite lives up to your ideal design, then having a go at coding it yourself might be your best bet. It could also save you some money too.
+Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document learning and gives you the ability to share it all with others. You can begin easily with a website builder like Squarespace or Wix, but for me it's been much more rewarding building it myself from scratch. It's more flexible and every pixel can be customised to your liking. If you've ever been frustrated with drag and drop, building blocks, preset wrangling style of designing that never quite lives up to your ideal vision, then having a go at coding it yourself might be your best bet. It could also save you some money too.
 
 In this first part, I am going to go over what tools I used and why I picked them. In part 2, I will go into the implementation details. Now, let's take a look at the first tool we are going to use.
 
