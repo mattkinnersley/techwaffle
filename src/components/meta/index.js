@@ -12,7 +12,7 @@ const Meta = ({ title, description }) => {
       <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
-        content="https://www.techwaffle.dev/techwaffle-heading.png"
+        content="https://www.techwaffle.dev/waffle-400x400.png"
       />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
