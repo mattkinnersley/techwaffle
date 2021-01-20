@@ -8,7 +8,7 @@ author: "Matt Kinnersley"
 
 Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document learning and gives you the ability to share it all with others. You can begin easily with a website builder like Squarespace or Wix, but for me it's been much more rewarding building it myself from scratch. It's more flexible and every pixel can be customised to your liking. If you've ever been frustrated with drag and drop, building blocks, preset wrangling style of designing that never quite lives up to your ideal vision, then having a go at coding it yourself might be your best bet. It could also save you some money too.
 
-In this first part, I am going to go over what tools I used and why I picked them. In the next part, I will go into the implementation details. Now, let's take a look at the first tool we are going to use.
+In this first part, I am going to go over what tools and services I used and why I picked them. If you are unfamiliar with any of these, I highly recommend you read this part before you jump straight in. If you'd like to dive into the code, you can skip to the next part where I will go into the implementation details. Now, let's take a look at the first tool we are going to use.
 
 ## NextJS
 
@@ -26,11 +26,11 @@ Tailwind provides a number of CSS classes that correspond to specific utilities,
 
 ## Mailchimp
 
-Being able to notify readers whenever you upload a new post is a great way to keep people engaged in your content. Mailchimp is a service that allows you to have users sign up to an audience and then receive emails from your campaigns. They have some very helpful templates that make it easy to automatically send confirmation emails when a user joins your email list too. We will create a new audience in Mailchimp
+Being able to notify readers whenever you upload a new post is a great way to keep people engaged in your content. Mailchimp is a service that allows you to have users sign up to an audience and then receive emails from your campaigns. They have some very helpful templates that make it easy to automatically send confirmation emails when a user joins your email list too. We will create a new audience in Mailchimp and build a custom form with React Hook Form to submit the readers email address to our API.
 
 ## Vercel
 
-The company that created NextJS is Vercel. They also provide hosting of React apps and more specifically, have great support for NextJS apps naturally. Using Vercel as the hosting provider for the blog was a no-brainer. Deploying your NextJS app to Vercel is incredibly easy, especially when you are using serverless functions in your app like we are with our mailchimp API route. They also provide Preview Deployments meaning when you push a branch other than master to GitHub, it will deploy a test version of your app to a temporary location to preview your changes. This feature is perfect for when you want to publish a new post to your blog but want to preview it before it goes live.
+The company that created NextJS is Vercel. They also provide hosting of React apps and more specifically, have great support for NextJS apps naturally. Using Vercel as the hosting provider for the blog was a no-brainer. Deploying your NextJS app to Vercel is incredibly easy, especially when you are using serverless functions in your app like we will with our mailchimp API route. They also provide Preview Deployments meaning when you push a branch other than master to GitHub, it will deploy a test version of your app to a temporary location to preview your changes. This feature is perfect for when you want to publish a new post to your blog but want to preview it before it goes live.
 
 ## Google Analytics
 
