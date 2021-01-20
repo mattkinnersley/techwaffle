@@ -1,7 +1,7 @@
 ---
-title: "Automate Your Workflow"
-subtitle: "GitHub Actions Vs GitHub Apps"
-excerpt: "When it comes to writing software, you often find that you repeat the same small tasks over and over again. Not only does this waste a lot of time, it's incredibly tedious."
-date: "2020-12-10T11:01:13.448Z"
+title: "Make Your Own Blog - Part 1"
+subtitle: "Making a Blog with NextJS, Mailchimp and Google Analytics"
+excerpt: "Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document your learning and then share it all with others."
+date: "2021-01-20T10:10:01.152Z"
 author: "Matt Kinnersley"
 ---
