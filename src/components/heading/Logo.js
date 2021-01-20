@@ -4,7 +4,7 @@ import Image from "next/image";
 const Logo = ({ size, className, lazy = false }) => (
   <Image
     className={className}
-    src="/waffle.png"
+    src="/waffle-400x400.png"
     alt="round waffle cartoon"
     height={size}
     width={size}
