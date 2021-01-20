@@ -8,7 +8,7 @@ author: "Matt Kinnersley"
 
 Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document learning and gives you the ability to share it all with others. You can begin easily with a website builder like Squarespace or Wix, but for me it's been much more rewarding building it myself from scratch. It's more flexible and every pixel can be customised to your liking. If you've ever been frustrated with drag and drop, building blocks, preset wrangling style of designing that never quite lives up to your ideal vision, then having a go at coding it yourself might be your best bet. It could also save you some money too.
 
-In this first part, I am going to go over what tools I used and why I picked them. In part 2, I will go into the implementation details. Now, let's take a look at the first tool we are going to use.
+In this first part, I am going to go over what tools I used and why I picked them. In the next part, I will go into the implementation details. Now, let's take a look at the first tool we are going to use.
 
 ## NextJS
 
@@ -26,7 +26,7 @@ Tailwind provides a number of CSS classes that correspond to specific utilities,
 
 ## Mailchimp
 
-Being able to notify readers whenever you upload a new post is a great way to keep people engaged in your content. Mailchimp is a service that allows you to have users sign up to an audience and then receive emails from your campaigns. They have some very helpful templates that make it easy to automatically send confirmation emails when a user joins your email list too.
+Being able to notify readers whenever you upload a new post is a great way to keep people engaged in your content. Mailchimp is a service that allows you to have users sign up to an audience and then receive emails from your campaigns. They have some very helpful templates that make it easy to automatically send confirmation emails when a user joins your email list too. We will create a new audience in Mailchimp
 
 ## Vercel
 
@@ -34,4 +34,4 @@ The company that created NextJS is Vercel. They also provide hosting of React ap
 
 ## Google Analytics
 
-If your blog starts gaining some attention, it can be extremely helpful to track which posts are (and are not) popular with your readers. Google provides a free service for this in the form of Google Analytics. Recently, Google released Google Analytics 4, which is what I use on this blog. I will show you how you can integrate this with your NextJS application and how to send events when users interact with your blog.
+If your blog starts gaining some attention, it can be extremely helpful to track which posts are (and are not) popular with your readers. Google provides a free service for this in the form of Google Analytics. Recently, Google released Google Analytics 4, which is what I use on this blog. I will show you how you can integrate this with your NextJS application and how to record events when users interact with your blog.
