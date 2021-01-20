@@ -16,13 +16,13 @@ NextJS is a framework that focuses on performance and search engine optimisation
 
 When you run a React app, HTML is injected into the DOM after the initial page load. This is great for a single-page app (SPA) as our content is dynamic and requires no further page loads. This is, however, a nightmare on our SEO. If you take a look at the source code of the page, you'll see an empty container waiting for JavaScript to push our desired content into it. This is exactly what one of Google's bots will see when it loads the page, making it unfit for indexing. Since we might like people to actually read our blog at some point, it would be a useful if they could find it in a search engine results page (SERP).
 
-So how does NextJS help us with this? Firstly, it gives us automatic static site generation and server-side rendering (SSR) out the box. Having our HTML pre-rendered with static site generation allows us to have all our content ready and available for bots to index on initial render, as oppose to an empty container with client-side rendering.
+So how does NextJS help us with this? Firstly, it gives us automatic static site generation and server-side rendering (SSR) out the box. Having our HTML pre-rendered with static site generation allows us to have all our content ready and available for bots to index on initial render, as opposed to an empty container with client-side rendering.
 
 Another big contributor to SEO is site performance. If you wanted to compare the page rankings of two websites, assuming all other factors being equal, there are key performance metrics that will decide which page gets ranked above another. If your site only needs to load some HTML and CSS, it will load much faster than a site that needs to load a whole bunch of render-blocking JavaScript. NextJS static generation will prerender your pages automatically and give you a bundle that you can stick on any CDN for a blazingly fast site. If you need data that can't be fetched at build time, you can use SSR to fetch this data on the server so it isn't being fetched on the client after initial page load.
 
 ## TailwindCSS
 
-Tailwind provides a number of CSS classes that correspond to specific utilities, for example `mb` to add `margin-bottom`. The difference between Once you have used Tailwind a few times, it becomes very efficient for designing your app. If this is your first time using it, I have found it actually takes some time getting used to. My recommendation is you install the Tailwind CSS IntelliSense VSCode extension and keep the docs open in a tab during development.
+Tailwind provides a number of CSS classes that correspond to specific utilities, for example `mb` to add `margin-bottom`. Once you have used Tailwind a few times, it becomes very efficient for designing your app. If this is your first time using it, I have found it actually takes some time getting used to. My recommendation is you install the Tailwind CSS IntelliSense VSCode extension and keep the docs open in a tab during development.
 
 ## Mailchimp
 
