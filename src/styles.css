@@ -129,6 +129,7 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   background-color: #eceff4;
   color: #111927;
   font-size: 1rem;
+  white-space: nowrap;
 }
 .dark .markdown p code {
   background-color: #fffbeb;
