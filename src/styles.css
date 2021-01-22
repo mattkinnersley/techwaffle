@@ -137,3 +137,7 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
 .markdown ul {
   @apply pl-5 list-disc;
 }
+
+.markdown ol {
+  @apply pl-5 list-decimal;
+}
