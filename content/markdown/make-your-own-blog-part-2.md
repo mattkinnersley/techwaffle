@@ -1,7 +1,7 @@
 ---
-title: "Make Your Own Blog - Part 1"
-subtitle: "Making a Blog with NextJS, Mailchimp and Google Analytics"
-excerpt: "Starting a blog is a great way to get your thoughts down on paper and out into the world. It helps to consolidate ideas, document your learning and then share it all with others."
+title: "Make Your Own Blog - Part 2"
+subtitle: "Setting up a Nextjs Blog and Deploying It With Vercel"
+excerpt: "Setting up a new NextJS project couldn't be easier. Creating a new app is as simple as a single command in your terminal and deploying it with Vercel is the easiest way to have seamless continuous integration for any React app."
 date: "2021-01-20T10:10:01.152Z"
 author: "Matt Kinnersley"
 ---
@@ -157,7 +157,7 @@ export async function getStaticPaths() {
 
 See how our React component takes the `post` prop? That is provided by out `getStaticProps` function at build time. This way, each of our pages that we dynamically generated earlier with their own unique path also get supplied with the correct post data. Another thing to notice is `getStaticProps` has a `params: { slug }` parameter. This is automatically provided by NextJS because `[slug].js` is what we named the file earlier. This means that at build time, `slug` becomes the slug of the post. Make sense? No? Don't worry, maybe this diagram will help.
 
-![Make%20Your%20Own%20Blog%20-%20Part%202%2033fad066db1d40999247bc3040e969a3/nextjs-static-generation.png](Make%20Your%20Own%20Blog%20-%20Part%202%2033fad066db1d40999247bc3040e969a3/nextjs-static-generation.png)
+![A diagram of static generation in NextJS](images/nextjs-static-generation.png)
 
 It is important to remember this happens at build time so once this process has happened, it doesn't have to happen every time someone comes to your blog. It is turned into static HTML.
 
