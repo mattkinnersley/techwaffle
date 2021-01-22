@@ -59,7 +59,7 @@ Now that we have our page paths being generated for us dynamically, lets get som
 
 A common approach to writing markdown blog posts is to use front matter to create the metadata of our posts. This can include fields like title, author, timestamp etc. It looks like this:
 
-```markup
+```markdown
 ---
 title: "My New Post!"
 subtitle: "Here is what this post is about"
@@ -70,7 +70,7 @@ author: "Matt Kinnersley"
 
 Below this front matter goes the content of the post. Write what you like for now, but include some header elements to play around with. Feel free to copy the following example:
 
-```markup
+```markdown
 ---
 title: "My First Post"
 subtitle: "Here is my first post"
@@ -86,15 +86,7 @@ Some regular text.
 
 Inline code:
 `const x = 2`
-
-Block of code:
-```javascript
-const helloWorld = () => {
-        console.log("hello world")
-}
 ```
-```
-
 To transform this markdown file into HTML, we can use a few libraries to help us. `fs` to read the contents of the file, `gray-matter` to read the front matter and `remark` to transform markdown to HTML. This works by parsing markdown into an abstract syntax tree (AST). You can then use other plugins in the `unified` collective to transform the syntax tree. This syntax tree then gets compiled back into text, or in our case, HTML.
 
 Using these libraries, we can convert our markdown files into HTML which will be run whenever we build our site.
