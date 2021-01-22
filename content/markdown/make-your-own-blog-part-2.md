@@ -232,5 +232,6 @@ I'll leave the specific design up to you for your blog but here are a few pointe
     }
     ```
 
-## In the next part, I'll show you how to add a custom Mailchimp form and Google Analytics to help you track and engage your readers.
+
+In the next part, I'll show you how to add a custom Mailchimp form and Google Analytics to help you track and engage your readers.
 
