@@ -226,7 +226,7 @@ I'll leave the specific design up to you for your blog but here are a few pointe
 
 - To add custom styles in your CSS file, use `@apply`.
 
-    ```css
+    ```html
     .btn {
       @apply font-bold py-2 px-4 rounded;
     }
