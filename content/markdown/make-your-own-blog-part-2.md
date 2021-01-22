@@ -226,10 +226,10 @@ I'll leave the specific design up to you for your blog but here are a few pointe
 
 - To add custom styles in your CSS file, use `@apply`.
 
-```css
-.btn {
-  @apply font-bold py-2 px-4 rounded;
-}
-```
+    ```css
+    .btn {
+      @apply font-bold py-2 px-4 rounded;
+    }
+    ```
 In the next part, I'll show you how to add a custom Mailchimp form and Google Analytics to help you track and engage your readers.
 
