@@ -149,7 +149,7 @@ export async function getStaticPaths() {
 
 See how our React component takes the `post` prop? That is provided by out `getStaticProps` function at build time. This way, each of our pages that we dynamically generated earlier with their own unique path also get supplied with the correct post data. Another thing to notice is `getStaticProps` has a `params: { slug }` parameter. This is automatically provided by NextJS because `[slug].js` is what we named the file earlier. This means that at build time, `slug` becomes the slug of the post. Make sense? No? Don't worry, maybe this diagram will help.
 
-![A diagram of static generation in NextJS](images/nextjs-static-generation.png)
+![A diagram of static generation in NextJS](/images/nextjs-static-generation.png)
 
 It is important to remember this happens at build time so once this process has happened, it doesn't have to happen every time someone comes to your blog. It is turned into static HTML.
 
