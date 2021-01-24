@@ -36,7 +36,7 @@ export async function getStaticProps({ params: { slug } }) {
   const { title, subtitle, date, series, author, content, excerpt } = getPostBySlug(
     slug
   );
-  const seriesPaths = series?.split(",").map(slug => `/posts/${slug}`)
+  const seriesPaths = series?.split(",").map(slug => `/posts/${slug}`) || ''
   const htmlContent = await markdownToHtml(content || "");
   return {
     props: {
