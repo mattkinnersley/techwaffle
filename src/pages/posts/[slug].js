@@ -12,6 +12,17 @@ export default function Post({ post }) {
         <div className="text-center">
           <h1 className="text-5xl font-extrabold">{post.title}</h1>
         </div>
+        <div className="mb-8 active:shadow-inner">
+          {post.seriesPaths && post.seriesPaths.map(path => (
+            <Link as={path} href="/posts/[slug]">
+              <a>
+                <div className="transition-shadow duration-300 rounded-md border-2 border-gray-800 dark:border-yellow-50 flex flex-col md:flex-row items-center justify-between p-4 thumbnail-shadow text-center">
+                  <h3 className="text-xl font-quicksand-bold">{path}</h3>
+                </div>
+              </a>
+            </Link>
+          ))}
+        </div>
         <div
           className="markdown min-w-full"
           dangerouslySetInnerHTML={{ __html: post.htmlContent }}
@@ -22,9 +33,10 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const { title, subtitle, date, author, content, excerpt } = getPostBySlug(
+  const { title, subtitle, date, series, author, content, excerpt } = getPostBySlug(
     slug
   );
+  const seriesPaths = series?.split(",").map(slug => `/posts/${slug}`)
   const htmlContent = await markdownToHtml(content || "");
   return {
     props: {
@@ -33,6 +45,7 @@ export async function getStaticProps({ params: { slug } }) {
       post: {
         title,
         date,
+        seriesPaths,
         author,
         htmlContent,
         excerpt,
