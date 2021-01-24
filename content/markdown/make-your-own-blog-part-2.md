@@ -2,7 +2,8 @@
 title: "Make Your Own Blog - Part 2"
 subtitle: "Setting up a Nextjs Blog and Deploying It With Vercel"
 excerpt: "Setting up a new NextJS project couldn't be easier. Creating a new app is as simple as a single command in your terminal and deploying it with Vercel is the easiest way to have seamless continuous integration for any React app."
-date: "2021-01-23T11:54:05.770Z"
+series: "make-your-own-blog-part-1,make-your-own-blog-part-2,make-your-own-blog-part-3"
+date: "2021-01-24T11:54:05.770Z"
 author: "Matt Kinnersley"
 ---
 
