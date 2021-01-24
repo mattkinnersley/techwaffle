@@ -15,10 +15,13 @@ export const getPostSlugs = () => {
 
 export const getPostBySlug = (slug) => {
   const fullPath = join(contentDir, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  return { ...data, content, slug };
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+    return { ...data, content, slug };
+  } catch (e) {
+    return {};
+  }
 };
 
 export const getAllPosts = () => {

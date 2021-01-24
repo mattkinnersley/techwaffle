@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import PostSeries from "../../components/post-series";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "../../utils";
 
 export default function Post({ post }) {
@@ -12,6 +13,13 @@ export default function Post({ post }) {
         <div className="text-center">
           <h1 className="text-5xl font-extrabold">{post.title}</h1>
         </div>
+        {post.seriesPosts && (
+          <PostSeries
+            series={post.seriesPosts}
+            currentPostSlug={post.slug}
+          ></PostSeries>
+        )}
+
         <div
           className="markdown min-w-full"
           dangerouslySetInnerHTML={{ __html: post.htmlContent }}
@@ -22,9 +30,24 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const { title, subtitle, date, author, content, excerpt } = getPostBySlug(
-    slug
-  );
+  const {
+    title,
+    subtitle,
+    date,
+    series,
+    author,
+    content,
+    excerpt,
+  } = getPostBySlug(slug);
+  const seriesPosts =
+    series?.split(",").map((slug, index) => {
+      const { title } = getPostBySlug(slug);
+      if (!title) {
+        return { title: `Part ${index + 1} coming soon` };
+      }
+      return { title, slug };
+    }) || "";
+
   const htmlContent = await markdownToHtml(content || "");
   return {
     props: {
@@ -33,6 +56,7 @@ export async function getStaticProps({ params: { slug } }) {
       post: {
         title,
         date,
+        seriesPosts,
         author,
         htmlContent,
         excerpt,

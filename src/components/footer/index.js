@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import Button from "../button";
 import Contact from "../contact";
 import BMC from "../svg/BMC";
 import EmailForm from "./email";
