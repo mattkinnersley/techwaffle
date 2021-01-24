@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { getPostBySlug, markdownToHtml, getAllPosts } from "../../utils";
 
 export default function Post({ post }) {
