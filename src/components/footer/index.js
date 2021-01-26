@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../button";
 import Contact from "../contact";
 import BMC from "../svg/BMC";

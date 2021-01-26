@@ -1,4 +1,3 @@
-import React from "react";
 import Heading from "../components/heading";
 import PostList from "../components/post-list";
 import { getAllPosts } from "../utils";
@@ -10,13 +9,7 @@ const Index = ({ posts, hero }) => (
     <div className="mt-8">
       <h2 className="text-2xl font-quicksand-bold my-4">Latest</h2>
       <HeroPost post={hero}></HeroPost>
-      {posts?.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-quicksand-bold my-4">More Posts</h2>
-
-          <PostList posts={posts}></PostList>
-        </div>
-      )}
+      {posts?.length > 0 && <PostList posts={posts}></PostList>}
     </div>
   </>
 );
