@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../button";
 import Mail from "../svg/Mail";
 import Twitter from "../svg/Twitter";

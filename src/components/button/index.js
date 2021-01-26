@@ -1,4 +1,3 @@
-import React from "react";
 import { sendSelectContentEvent } from "../../utils/ga";
 
 const Button = ({ href, children }) => {

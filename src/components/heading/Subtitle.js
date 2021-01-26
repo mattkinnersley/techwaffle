@@ -1,5 +1,3 @@
-import React from "react";
-
 const Subtitle = () => {
   return (
     <div className="mb-10">

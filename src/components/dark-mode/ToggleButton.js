@@ -1,5 +1,3 @@
-import React from "react";
-
 const ToggleButton = ({ theme, setTheme }) => {
   return (
     <div
