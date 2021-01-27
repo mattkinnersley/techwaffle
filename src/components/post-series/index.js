@@ -12,7 +12,11 @@ const PostSeries = ({ series, currentPostSlug }) => {
           );
         } else if (seriesSlug) {
           return (
-            <Link as={`/posts/${seriesSlug}`} href="/posts/[slug]">
+            <Link
+              key={seriesSlug}
+              as={`/posts/${seriesSlug}`}
+              href="/posts/[slug]"
+            >
               <a>
                 <p className="transition-all p-2 m-2 rounded-md hover:bg-waffle dark:hover:bg-gray-700">
                   {title}
