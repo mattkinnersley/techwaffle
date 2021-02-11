@@ -5,8 +5,8 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
-
   render() {
+    const isLocal = process.env.NODE_ENV === "development";
     return (
       <Html lang="en">
         <Head>
@@ -15,7 +15,7 @@ class MyDocument extends Document {
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-8QHRB6454Z"
           ></script>
-          <script src="/js/ga.js"></script>
+          {!isLocal && <script src="/js/ga.js"></script>}
         </Head>
         <body>
           <Main />

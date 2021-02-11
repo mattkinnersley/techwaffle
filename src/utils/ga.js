@@ -1,5 +1,11 @@
+const isLocal = process.env.NODE_ENV === "development";
+
 export const sendEvent = ({ eventName, data }) => {
-  gtag("event", eventName, data);
+  if (isLocal) {
+    console.log("GA is disabled in dev mode.");
+  } else {
+    gtag("event", eventName, data);
+  }
   console.log(`Google Analytics - ${eventName}`, data);
 };
 
