@@ -1,14 +1,11 @@
-import Image from "next/image";
-
-const Logo = ({ size, className, lazy = false }) => (
-  <Image
+const Logo = ({ size, className }) => (
+  <img
     className={className}
     src="/waffle-400x400.png"
     alt="round waffle cartoon"
     height={size}
     width={size}
-    lazy={lazy.toString()}
-  ></Image>
+  ></img>
 );
 
 export default Logo;

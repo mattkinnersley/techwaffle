@@ -24,6 +24,7 @@ module.exports = {
       opacity: ["disabled"],
       textColor: ["responsive", "hover", "focus", "group-hover"],
       boxShadow: ["active"],
+      inset: ["focus"],
     },
   },
   plugins: [],

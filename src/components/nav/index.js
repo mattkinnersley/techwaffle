@@ -31,9 +31,15 @@ const Nav = ({ theme, setTheme }) => {
       )}`}
     >
       <div className="flex items-center justify-between container px-5 md:px-10 lg:px-32 md:mx-10">
+        <a
+          href="#content"
+          className="absolute -top-12 focus:top-auto z-10 p-2 bg-white dark:bg-gray-800"
+        >
+          Skip to main content
+        </a>
         <Link href="/">
           <a>
-            <Logo size="48" lazy></Logo>
+            <Logo size="48"></Logo>
           </a>
         </Link>
         <div className="flex items-center w-full justify-evenly sm:w-auto">
