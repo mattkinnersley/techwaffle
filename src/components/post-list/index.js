@@ -1,4 +1,4 @@
-import { usePagination } from "../../hooks/usePagination";
+import { usePagination } from "@techwaffle/hooks/usePagination";
 import PageChanger from "../page-changer";
 import PostThumbnail from "../post-thumbnail";
 

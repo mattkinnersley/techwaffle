@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { sendScreenViewEvent } from "@techwaffle/utils/ga";
 import Footer from "../footer";
 import Meta from "../meta";
 import Nav from "../nav";
 import Container from "./Container";
-import cn from "classnames";
-import { sendScreenViewEvent } from "../../utils/ga";
 
 const Layout = ({ title, description, children }) => {
   const [theme, setTheme] = useState(() => {

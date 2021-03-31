@@ -1,5 +1,5 @@
-import Layout from "../components/layout";
-import "../styles.css";
+import Layout from "@techwaffle/components/layout";
+import "@techwaffle/styles";
 
 export default function MyApp({
   Component,
