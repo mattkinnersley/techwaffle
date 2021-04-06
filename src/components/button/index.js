@@ -1,4 +1,4 @@
-import { sendSelectContentEvent } from "../../utils/ga";
+import { sendSelectContentEvent } from "@techwaffle/utils/ga";
 
 const Button = ({ href, children }) => {
   return (

@@ -11,6 +11,125 @@
   src: url("../public/fonts/Quicksand-VariableFont_wght.ttf");
 }
 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: none;
+  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #2e3440;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #636f88;
+}
+
+.token.punctuation {
+  color: #81a1c1;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #81a1c1;
+}
+
+.token.number {
+  color: #b48ead;
+}
+
+.token.boolean {
+  color: #81a1c1;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a3be8c;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #81a1c1;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #88c0d0;
+}
+
+.token.keyword {
+  color: #81a1c1;
+}
+
+.token.regex,
+.token.important {
+  color: #ebcb8b;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
 .thumbnail-shadow {
   box-shadow: 5px 5px #1f2a37;
 }
@@ -83,17 +202,17 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   transform: translateX(1.5rem) scale(1.2) !important;
 }
 
-.markdown {
-  @apply text-lg leading-relaxed;
-}
-
-.markdown p,
-.markdown ul,
-.markdown ol,
-.markdown blockquote {
+.markdown > * {
   @apply my-6;
 }
-.markdown p img {
+.markdown > p,
+.markdown > ul,
+.markdown > ol,
+.markdown > pre,
+.markdown > blockquote {
+  @apply text-lg leading-relaxed;
+}
+.markdown > p > img {
   @apply py-2 m-auto;
 }
 @screen sm {
@@ -107,15 +226,15 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   }
 }
 
-.markdown h2 {
+.markdown > h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
 
-.markdown h3 {
+.markdown > h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
 }
 
-.markdown a {
+.markdown > a {
   @apply underline;
 }
 
@@ -123,7 +242,7 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   @apply overflow-auto p-4 rounded-snippet mb-4;
 }
 
-.markdown p code {
+.markdown > p > code {
   border-radius: 5px;
   padding: 4px;
   background-color: #eceff4;
@@ -131,14 +250,14 @@ html.dark .dark-toggle-button:hover > .dark-toggle-inner {
   font-size: 1rem;
   white-space: nowrap;
 }
-.dark .markdown p code {
+.dark .markdown > p > code {
   @apply bg-gray-800 text-yellow-50;
 }
 
-.markdown ul {
+.markdown > ul {
   @apply pl-5 list-disc;
 }
 
-.markdown ol {
+.markdown > ol {
   @apply pl-5 list-decimal;
 }

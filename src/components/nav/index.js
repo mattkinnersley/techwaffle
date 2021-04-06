@@ -4,7 +4,7 @@ import Logo from "../heading/Logo";
 import cn from "classnames";
 import NavLink from "./NavLink";
 import { useRouter } from "next/router";
-import ToggleButton from "../dark-mode/ToggleButton";
+import ToggleButton from "../toggle-button";
 
 const Nav = ({ theme, setTheme }) => {
   const [scrolled, setScrolled] = useState(false);

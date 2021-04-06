@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@techwaffle/components/*": ["src/components/*"],
+      "@techwaffle/hooks/*": ["src/hooks/*"],
+      "@techwaffle/content/*": ["content/*"],
+      "@techwaffle/utils/*": ["src/utils/*"],
+      "@techwaffle/styles": ["src/styles.css"]
+    }
+  }
+}

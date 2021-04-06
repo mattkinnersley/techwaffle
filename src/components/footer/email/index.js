@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import cn from "classnames";
-import { sendSignUpEvent } from "../../../utils/ga";
+import { sendSignUpEvent } from "@techwaffle/utils/ga";
 
 const getErrorMessage = ({ email }) => {
   let message = "";

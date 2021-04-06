@@ -1,7 +1,7 @@
-import Heading from "../components/heading";
-import PostList from "../components/post-list";
-import { getAllPosts } from "../utils";
-import HeroPost from "../components/hero";
+import Heading from "@techwaffle/components/heading";
+import HeroPost from "@techwaffle/components/hero";
+import PostList from "@techwaffle/components/post-list";
+import { getAllPostFrontMatters } from "@techwaffle/utils/posts";
 
 const Index = ({ posts, hero }) => (
   <>
@@ -15,7 +15,7 @@ const Index = ({ posts, hero }) => (
 );
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPostFrontMatters();
 
   const posts = allPosts.slice(1);
   const hero = allPosts[0];
