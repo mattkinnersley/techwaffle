@@ -63,7 +63,7 @@ const EmailForm = () => {
             }
           )}`}
           type="text"
-          placeholder="you@email.com"
+          placeholder="Enter email address"
           name="email"
           ref={register({
             required: true,
@@ -83,6 +83,7 @@ const EmailForm = () => {
         value={isSubmitting ? "..." : "Submit"}
         disabled={!formValid}
         type="submit"
+        aria-label="Submit email"
       />
       {errors.email && <span>{getErrorMessage(errors)}</span>}
       {isSubmitSuccessful && !errors.email && (

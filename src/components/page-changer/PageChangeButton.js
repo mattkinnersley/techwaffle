@@ -1,7 +1,7 @@
 import Chevron from "../svg/Chevron";
 import cn from "classnames";
 
-const PageChangeButton = ({ onClick, disabled, className = "" }) => (
+const PageChangeButton = ({ onClick, disabled, className = "", ...props }) => (
   <button
     className={`transition-borderShadow duration-300 rounded-md border-2 border-gray-800 w-8 bg-white dark:bg-gray-600 font-quicksand-bold active:shadow-inner disabled:opacity-25 ${cn(
       {
@@ -10,6 +10,7 @@ const PageChangeButton = ({ onClick, disabled, className = "" }) => (
     )} ${className}`}
     onClick={onClick}
     disabled={disabled}
+    {...props}
   >
     <Chevron />
   </button>

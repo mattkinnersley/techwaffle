@@ -6,6 +6,7 @@ const PageChanger = ({ previousPage, nextPage, currentPage, pageLimit }) => (
       disabled={currentPage === 1}
       onClick={() => previousPage()}
       className="transform rotate-180"
+      aria-label="Previous page of posts"
     />
     <span className="px-2 text-2xl w-10 text-center font-quicksand-bold">
       {currentPage}
@@ -13,6 +14,7 @@ const PageChanger = ({ previousPage, nextPage, currentPage, pageLimit }) => (
     <PageChangeButton
       disabled={currentPage === pageLimit}
       onClick={() => nextPage()}
+      aria-label="Next page of posts"
     />
   </div>
 );

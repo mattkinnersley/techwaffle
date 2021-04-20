@@ -16,7 +16,10 @@ const Footer = () => {
       <Contact />
       <div className="mt-2 flex flex-col items-center">
         <h3 className="text-2xl font-quicksand-bold mb-2">Support my work</h3>
-        <Button href="https://www.buymeacoffee.com/techwaffle">
+        <Button
+          href="https://www.buymeacoffee.com/techwaffle"
+          aria-label="Buy me a coffee"
+        >
           <BMC />
         </Button>
       </div>

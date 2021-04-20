@@ -3,6 +3,7 @@ const ToggleButton = ({ theme, setTheme }) => {
     <button
       className={`ml-2 dark-toggle-button`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Toggle dark mode"
     >
       <div className={`dark-toggle-inner`}></div>
     </button>
