@@ -1,10 +1,15 @@
----
-title: 'Serverless Apollo Server'
-subtitle: 'Running Apollo Server with webpack on the Serverless Framework'
-excerpt: 'One of the best things about the Serverless Framework is how little amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it.'
-date: '2020-07-10T14:55:38.039Z'
-author: 'Matt Kinnersley'
----
+import PostLayout from "@techwaffle/components/post-layout";
+
+export const meta = {
+  title: "Serverless Apollo Server",
+  subtitle: "Running Apollo Server with webpack on the Serverless Framework",
+  excerpt:
+    "One of the best things about the Serverless Framework is how little amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it.",
+  date: "2020-07-10T14:55:38",
+  author: "Matt Kinnersley",
+};
+
+export default PostLayout;
 
 One of the best things about the Serverless Framework is how little amount of time you have to spend on getting your infrastructure up and running. This is made even faster when you combine it with the many plugins that are created by the community around it. This is why I wanted to see if I could deploy a GraphQL server on AWS Lambda with some of my favourite plugins that not only make your development faster, but also your Lambda cold starts.
 
@@ -23,7 +28,7 @@ The `serverless-bundle` plugin is actually an extension to the serverless-webpac
 Once again, all the heavy lifting is done for us. Apollo provides a great library for turning your GraphQL server into an AWS Lambda function. It is as simple as switching your `ApolloServer` and `gql` imports from `apollo-server` to `apollo-server-lambda`.
 
 ```js
-import { ApolloServer, gql } from 'apollo-server-lambda';
+import { ApolloServer, gql } from "apollo-server-lambda";
 ```
 
 Once that is done, all you have to do then is export the `createHandler` method from your server and you're done! All of this can be done with the `import` / `export` syntax when we combine it with `serverless-bundle` plugin.
@@ -34,13 +39,13 @@ const server = new ApolloServer({
   resolvers,
   introspection: true,
   playground: {
-    endpoint: '/dev/graphql',
+    endpoint: "/dev/graphql",
   },
 });
 
 export const graphqlHandler = server.createHandler({
   cors: {
-    origin: '*',
+    origin: "*",
     credentials: true,
   },
 });

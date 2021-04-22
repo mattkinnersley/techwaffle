@@ -1,10 +1,15 @@
----
-title: "Automate Your Workflow"
-subtitle: "GitHub Actions Vs GitHub Apps"
-excerpt: "When it comes to writing software, you often find that you repeat the same small tasks over and over again. Not only does this waste a lot of time, it's incredibly tedious."
-date: "2020-12-10T11:01:13.448Z"
-author: "Matt Kinnersley"
----
+import PostLayout from "@techwaffle/components/post-layout";
+
+export const meta = {
+  title: "Automate Your Workflow",
+  subtitle: "GitHub Actions Vs GitHub Apps",
+  excerpt:
+    "When it comes to writing software, you often find that you repeat the same small tasks over and over again. Not only does this waste a lot of time, it's incredibly tedious.",
+  date: "2020-12-10T11:01:13",
+  author: "Matt Kinnersley",
+};
+
+export default PostLayout;
 
 When it comes to writing software, you often find that you repeat the same small tasks over and over again. Not only does this waste a lot of time, it's incredibly tedious.
 
@@ -18,7 +23,7 @@ This is even more of a problem if you're working in a team. Multiply those hours
 
 "Does it really matter if I spend some of my time on the little things?"
 
-Here's the thing, it's not just about what you *are* doing, it's also about what you're *not* doing. You could be spending that time adding features, improving UX, or more importantly, giving yourself a break. It's easy to forget that your time is precious. Don't waste it.
+Here's the thing, it's not just about what you _are_ doing, it's also about what you're _not_ doing. You could be spending that time adding features, improving UX, or more importantly, giving yourself a break. It's easy to forget that your time is precious. Don't waste it.
 
 "OK Matt, I get it, I'm wasting my time and my teams time. What can I do about it?"
 
@@ -30,13 +35,13 @@ In this article I'm going to discuss two ways to automate your workflow: GitHub 
 
 Think of these as little bits of code that run whenever something happens with your GitHub repository.
 
-Actions are the building blocks of what is known as a *workflow.*
+Actions are the building blocks of what is known as a _workflow._
 
 When someone interacts with the repository, whether that be a new pull request or a new comment on an issue, GitHub checks if you have any workflows defined that need to be run as a result of this event. In a workflow, you get to choose what events GitHub needs to look out for. Once your workflow is triggered, it will run through a series of jobs that you defined. A job can be thought of as a step in your workflow. Each job has its own set up steps to execute. These steps are what run your Actions.
 
 ![A diagram of how GitHub Actions work](/images/github-action.png)
 
-An Action can be created with Docker containers, JavaScript or a combination of steps to form a *Composite Run Steps Action.*
+An Action can be created with Docker containers, JavaScript or a combination of steps to form a _Composite Run Steps Action._
 
 If you are familiar with writing JavaScript, then I would recommend you start with creating your Actions this way. Not only do they allow you to separate the Action code from the environment setup, they also execute faster than a Docker container Action as they run directly on the runner and use the binaries that are already installed in the virtual environment.
 
@@ -60,9 +65,9 @@ Unlike Actions that are defined in your code repository and run on GitHubs serve
 
 This gives GitHub Apps a couple of significant advantages. The first, depending on the hosting provider, is speed of execution. An app living on a server, is already up and running once it is deployed. All it needs is the request to come through and it can start doing whatever it has been programmed to do. Conversely, Actions need to wait for their workflow to be triggered, wait for the virtual machine to spin up and then it can begin performing its function.
 
-Another advantage is how the app exists in your workflow. I have found that an app just *feels* cleaner to use in your workflow. Don't get me wrong, there is more work involved in building and deploying the app, but once it is running, it is unobtrusive and you can quite often forget about it.
+Another advantage is how the app exists in your workflow. I have found that an app just _feels_ cleaner to use in your workflow. Don't get me wrong, there is more work involved in building and deploying the app, but once it is running, it is unobtrusive and you can quite often forget about it.
 
-If you want to build your own GitHub App, check out Probot. 
+If you want to build your own GitHub App, check out Probot.
 
 ## Which one should you pick?
 

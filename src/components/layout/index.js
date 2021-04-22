@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { sendScreenViewEvent } from "@techwaffle/utils/ga";
 import Footer from "../footer";
-import Meta from "../meta";
 import Nav from "../nav";
-import Container from "./Container";
 
-const Layout = ({ title, description, children }) => {
+const Layout = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       return window.localStorage.theme || "light";
@@ -20,20 +17,18 @@ const Layout = ({ title, description, children }) => {
     document.documentElement.className = theme;
   }, [theme]);
 
-  useEffect(() => {
-    sendScreenViewEvent({ title });
-  }, [title]);
-
   return (
-    <div>
-      <Meta title={title} description={description}></Meta>
-      <div
-        className={`transition-background duration-1000 min-w-full font-quicksand text-xl flex flex-col items-center text-gray-800 dark:text-yellow-50 dark:bg-gray-900`}
+    <div
+      className={`transition-background duration-1000 min-w-full font-quicksand text-xl flex flex-col items-center text-gray-800 dark:text-yellow-50 dark:bg-gray-900`}
+    >
+      <Nav theme={theme} setTheme={setTheme} />
+      <main
+        id="content"
+        className="flex flex-col min-h-screen px-5 pb-5 md:px-10 md:pb-10 md:mx-10 lg:px-32 pt-32 container"
       >
-        <Nav theme={theme} setTheme={setTheme} />
-        <Container>{children}</Container>
-        <Footer />
-      </div>
+        {children}
+      </main>
+      <Footer />
     </div>
   );
 };

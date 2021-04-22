@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-const PostSeries = ({ series, currentPostSlug }) => {
+const PostSeries = ({ series }) => {
   return (
     <div className="border-2 border-waffleLight dark:border-gray-800 rounded-md mt-12 text-center">
-      {series.map(({ title, slug: seriesSlug }) => {
-        if (seriesSlug === currentPostSlug) {
+      {series.map(({ title, slug: seriesSlug, currentPost }) => {
+        if (currentPost) {
           return (
             <p
               key={title}
@@ -15,7 +15,7 @@ const PostSeries = ({ series, currentPostSlug }) => {
           );
         } else if (seriesSlug) {
           return (
-            <Link key={title} as={`/posts/${seriesSlug}`} href="/posts/[slug]">
+            <Link key={title} href={`/posts/${seriesSlug}`}>
               <a>
                 <p className="transition-all p-2 m-2 rounded-md hover:bg-waffle dark:hover:bg-gray-700">
                   {title}

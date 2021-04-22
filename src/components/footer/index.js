@@ -1,7 +1,7 @@
 import Button from "../button";
 import Contact from "../contact";
 import BMC from "../svg/BMC";
-import EmailForm from "./email";
+import EmailForm from "../email";
 
 const Footer = () => {
   return (
