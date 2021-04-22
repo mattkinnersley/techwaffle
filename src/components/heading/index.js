@@ -1,5 +1,4 @@
-import Logo from "./Logo";
-import Subtitle from "./Subtitle";
+import Logo from "../logo";
 
 const Heading = () => {
   return (
@@ -10,8 +9,9 @@ const Heading = () => {
           Tech Waffle
         </h1>
       </div>
-
-      <Subtitle></Subtitle>
+      <div className="mb-10">
+        <h2 className="text-2xl">Just a load of waffle</h2>
+      </div>
     </div>
   );
 };
