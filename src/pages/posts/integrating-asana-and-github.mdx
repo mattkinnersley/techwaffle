@@ -1,0 +1,198 @@
+import PostLayout from "@techwaffle/components/post-layout";
+
+export const meta = {
+  title: "Integrating Asana and GitHub",
+  subtitle: "Keeping your tasks in sync with your PRs",
+  excerpt:
+    "Asana is a great tool for project management and we use it daily for keeping track of our work at Octopus Energy. It allows you to break work down into tasks that you can then assign to team members. It also has a range of integrations with other apps such as Slack, Google Calendar and Gmail to help keep all your tools connected. On top of this, Asana has an API to build your own integrations with, which is exactly what I'll be showing you how to do today.",
+  date: "2021-04-25T15:03:12",
+  author: "Matt Kinnersley",
+};
+
+export default PostLayout;
+
+Asana is a great tool for project management and we use it daily for keeping track of our work at Octopus Energy. It allows you to break work down into tasks that you can then assign to team members. It also has a range of integrations with other apps such as Slack, Google Calendar and Gmail to help keep all your tools connected. On top of this, Asana has an API to build your own integrations with, which is exactly what I'll be showing you how to do today.
+
+## Connecting Asana with GitHub
+
+When we pick up a task from our Asana board, the first step is usually creating a new branch in our repository to start our work on. Once we've finished coding up the solution to the task, we push up our code to GitHub and create a Pull Request. At this point, we copy the URL of the Asana Task into the description of the PR and then copy the URL of the PR into the Asana Task. This is so we can keep track of where and when work is being completed for a particular task. The problem here is that doing this for every PR becomes monotonous very quickly! Especially when you add up how much time this takes across every developer in the organisation.
+
+What's the solution to this? We automate it of course. We do this by making a GitHub App and if you aren't sure what a GitHub App is, I wrote a post about them and why you should [automate your workflow](/posts/automate-your-workflow). Here's the gist: they are just ordinary servers that have a webhook endpoint for GitHub to send events to. These events have certain triggers e.g. pushes to the repository, new deployments and new pull requests. Now here is where we get to do some of the creative stuff! When an event is sent to the server, it can run whatever code you like! In our case, we want to interact with the Asana API. You can find all of the available endpoints for this API [in the documentation](https://developers.asana.com/docs).
+
+Asana also offers language specific libraries for the API to help with development. We will be using the Node.js library for our implementation and have it hosted on AWS Lambda. Lambda is perfect for this kind of application as it has fluctuating traffic. When it isn't being used, it doesn't cost a thing! When traffic increases, it scales to meet the demand. Cold starts aren't an issue, as this bot doesn't need to respond as quickly as a standard web application.
+
+## Let's get started!
+
+Luckily for us, there's a framework for easily building GitHub Apps in Node.js! [Probot](https://probot.github.io/) allows us to easily write, test and deploy our GitHub App. Getting started with Probot is as easy as running a simple command.
+
+```bash
+npx create-probot-app my-first-app
+```
+
+The Probot [Getting Started](https://probot.github.io/docs/development/#generating-a-new-app) guide has plenty of information on creating a new app so I won't go into all the detail here. Essentially, follow the instructions from the CLI to generate a basic JavaScript or TypeScript application.
+
+For our app we need to implement the following functionality:
+
+- Getting the ID of the Asana Task from the GitHub PR
+- Commenting the task details on the PR.
+- Commenting a link to the PR on the Asana Task.
+
+### Where is the ID of the Asana Task?
+
+This can be found at the end the URL of the Task itself:
+
+```
+https://app.asana.com/0/1190306106424280/1200232177547265
+```
+
+In the example above, the task ID is `1200232177547265`. The number before is the Project ID.
+
+### How do we link the Asana Task with the GitHub PR?
+
+This can be done in a number of ways but what works for us here at Octopus is appending it to the end of the branch name when it is created.
+
+```bash
+git checkout -b new-feature-branch-1200232177547265
+```
+
+At this point, simply push up the branch to GitHub and make a Pull Request. Upon making the PR, the event will be triggered and sent to your GitHub App. The payload of the request will contain all the details of the PR including the name of the branch. Your app at this point should have a handler for any `pull_request.opened` events.
+
+```js
+module.exports = (app) => {
+  app.on("pull_request.opened", async (context) => {
+    try {
+      // Access the payload containing details of the PR
+      const { payload } = context;
+    } catch (error) {
+      context.log.error(error);
+    }
+  });
+};
+```
+
+To find it you'll have to extract it from the `pull_request` object. At this stage, let's also grab some other details of the PR that we will need for later.
+
+```js
+const {
+  pull_request: {
+    head: { ref },
+    html_url: prUrl,
+    number: issueNumber,
+    user: { login: userName, html_url: userUrl },
+  },
+  repository: { full_name: repoName },
+} = payload;
+
+console.log(ref);
+// new-feature-branch-1200232177547265
+
+const asanaTaskID = ref.substring(ref.lastIndexOf("-") + 1);
+console.log(asanaTaskID);
+// 1200232177547265
+
+console.log(repoName);
+// KinnersleyM/my-repository
+
+const [owner, repo] = repoName.split("/");
+console.log(owner);
+// KinnersleyM
+console.log(repo);
+// my-repository
+```
+
+If you aren't familiar with the above syntax, we are destructuring the object and grabbing the fields we need. We then reassign them to new variables for better naming purposes.
+
+### Interacting with the Asana API
+
+When we interact with Asana, we want to do it from an account that can comment on the tasks. For this, we need to create a new "GitHub Bot" account. Once logged into this account we can [create a Personal Access Token (PAT)](https://app.asana.com/0/developer-console) and use it in our app.
+
+Firstly, to use the Asana Node.js library we need to add it to our project.
+
+```bash
+yarn add asana
+```
+
+With this we can now initialise the client with our newly generated PAT.
+
+```js
+// We store the token in an environment variable to keep it private.
+const asanaToken = process.env.ASANA_ACCESS_TOKEN;
+
+const asanaClient = asana.Client.create().useAccessToken(asanaToken);
+```
+
+Now that have both an Asana Client and an Asana Task ID to work with, commenting on the Asana Task is a piece of cake. We can write the comment in HTML syntax to provide the links we need.
+
+```js
+const comment = `<body>
+    <a href="${userUrl}">${userName}</a> created a
+    <a href="${prUrl}">GitHub Pull Request</a> for this task.
+  </body>`;
+
+client.stories.createStoryForTask(asanaTaskID, { html_text: comment });
+```
+
+This should result in the following comment from your bot on the Asana Task:
+
+![An example of a comment on an Asana Task from a GitHub Bot](/images/asana-github-bot-comment.png)
+
+Cool, right?
+
+### Interacting with the GitHub API
+
+So how do we comment on the PR? Once again, Probot has us covered. In the `context` object, there is a GitHub client with all the permissions we need. The client is called `octokit`. We can then use it's methods to add a comment to the PR. From GitHub's perspective, a Pull Request is just an Issue with code waiting to be merged. This is why if we want to comment on a PR we use the client's `issues.createComment()` method.
+
+```js
+const githubClient = context.octokit;
+
+githubClient.issues.createComment({
+  owner,
+  repo,
+  issue_number: issueNumber,
+  body: "This is my comment",
+});
+```
+
+We can add anything we like to the comment here, but for our purposes, let's add the details of the Asana Task. This way, somebody taking a look at the PR can instantly see what task the PR aims to address. To get the details of the Asana Task, let's use that Asana Task ID again, but with a different method on the Asana client.
+
+```js
+// Specify what fields you want back from the Asana API.
+const opt_fields = [
+  "name",
+  "html_notes",
+  "permalink_url",
+  "projects.name",
+].join(",");
+
+// Make the request
+const asanaTask = await client.tasks.getTask(asanaTaskID, {
+  opt_fields,
+});
+```
+
+Now that we have all the details we need of the Asana Task, let's add those to the comment we want to make to the PR. A cool part of the Asana API is the ability to request the details of the Task in HTML. We can then use this to keep the same formatting of the Task description and place it right into the GitHub comment.
+
+```js
+const projects = asanaTask.projects.map(({ name }) => name).join(", ");
+
+const comment = `<body>
+  <h2>${asanaTask.name}</h2>
+  <a href="${asanaTask.permalink_url}">See this task in Asana</a>
+  <h3>Projects</h3>
+  <p>${projects}</p>
+  <h3>Description</h3>
+  <p>${asanaTask.html_notes}</p>
+</body>`;
+```
+
+If all is successful, you should end up with something like this in your PR:
+
+![An example of a comment on a GitHub PR from an Asana Bot](/images/github-pr-bot-comment.png)
+
+You now have a fully functioning GitHub app that can comment on both your Pull Requests and your Asana Tasks. Congrats! Now all that's left to do, is to deploy it!
+
+If you've read any of my other posts, you'll know I'm a fan of the Serverless Framework. It is one of the quickest ways to deploy an application to AWS Lambda. Not only that, [Probot has a plugin for it!](https://github.com/probot/adapter-aws-lambda-serverless#readme) This makes our life so much easier.
+
+## Deployment
+
+Probot has [documented the process](https://probot.github.io/docs/deployment/#aws-lambda) for deploying to AWS Lambda so I won't repeat that here. They also have a full [AWS Lambda example](https://github.com/probot/example-aws-lambda-serverless/#readme) too. Of course, you don't have to stick to deploying to Lambda as they also have a number other options in their documentation.
