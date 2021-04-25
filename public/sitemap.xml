@@ -1,56 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-
-<url>
-  <loc>https://www.techwaffle.dev/</loc>
-  <lastmod>2020-12-11T15:32:21+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/about</loc>
-  <lastmod>2020-12-11T15:32:21+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-3</loc>
-  <lastmod>2021-01-27T20:09:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-2</loc>
-  <lastmod>2021-01-24T11:54:05+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-1</loc>
-  <lastmod>2021-01-20T10:10:01+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/automate-your-workflow</loc>
-  <lastmod>2020-12-10T11:01:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/serverless-apollo-server</loc>
-  <lastmod>2020-07-10T14:55:38+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/websockets-vs-graphql-subscriptions</loc>
-  <lastmod>2020-06-13T10:01:52+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.techwaffle.dev/posts/an-introduction</loc>
-  <lastmod>2020-05-21T15:56:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.techwaffle.dev/</loc>
+    <lastmod>2020-12-11T15:32:21+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/about</loc>
+    <lastmod>2020-12-11T15:32:21+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/integrating-asana-and-github</loc>
+    <lastmod>2021-04-25T15:03:12+0100</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-3</loc>
+    <lastmod>2021-01-27T20:09:05+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-2</loc>
+    <lastmod>2021-01-24T11:54:05+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/make-your-own-blog-part-1</loc>
+    <lastmod>2021-01-20T10:10:01+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/automate-your-workflow</loc>
+    <lastmod>2020-12-10T11:01:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/serverless-apollo-server</loc>
+    <lastmod>2020-07-10T14:55:38+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/websockets-vs-graphql-subscriptions</loc>
+    <lastmod>2020-06-13T10:01:52+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.techwaffle.dev/posts/an-introduction</loc>
+    <lastmod>2020-05-21T15:56:45+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
 </urlset>
